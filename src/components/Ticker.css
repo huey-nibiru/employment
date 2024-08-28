@@ -1,0 +1,30 @@
+/* src/Ticker.css */
+
+/* Styles for the ticker component */
+.ticker {
+	background-color: #000; /* Background color of the ticker */
+	color: #fff; /* Text color for the ticker content */
+	font-size: 1.2em; /* Font size for the ticker text */
+	overflow: hidden; /* Hide any content that overflows the ticker container */
+	white-space: nowrap; /* Prevent line breaks, ensuring text stays on a single line */
+}
+
+/* Styles for the content inside the ticker */
+.ticker-content {
+	display: inline-block; /* Allow the ticker content to be inline with animation */
+	animation: ticker 40s linear infinite; /* Animate the ticker content with a duration of 40 seconds, in a linear fashion, repeating infinitely */
+}
+
+/* Keyframes for the ticker animation */
+@keyframes ticker {
+	0% {
+		transform: translateX(
+			100%
+		); /* Start the animation with the content off the right side of the container */
+	}
+	100% {
+		transform: translateX(
+			-100%
+		); /* End the animation with the content off the left side of the container */
+	}
+}

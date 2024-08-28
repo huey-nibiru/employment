@@ -1,0 +1,56 @@
+/* Styles for the root element and layout */
+#root {
+	max-width: 1280px; /* Maximum width of the container */
+	margin: 0 auto; /* Center the container horizontally */
+	padding: 2rem; /* Add padding around the container */
+	text-align: center; /* Center align text within the container */
+}
+
+/* Styles for the logo */
+.logo {
+	height: 6em; /* Set the height of the logo */
+	padding: 1.5em; /* Add padding around the logo */
+	will-change: filter; /* Hint to the browser that the filter will change, improving performance */
+	transition: filter 300ms; /* Smooth transition for filter changes */
+}
+
+/* Styles for logo hover effect */
+.logo:hover {
+	filter: drop-shadow(
+		0 0 2em #646cffaa
+	); /* Apply a drop shadow effect on hover */
+}
+
+/* Styles for the React logo hover effect */
+.logo.react:hover {
+	filter: drop-shadow(
+		0 0 2em #61dafbaa
+	); /* Apply a different drop shadow effect for React logo on hover */
+}
+
+/* Keyframes for logo spin animation */
+@keyframes logo-spin {
+	from {
+		transform: rotate(0deg); /* Start rotation from 0 degrees */
+	}
+	to {
+		transform: rotate(360deg); /* Complete rotation to 360 degrees */
+	}
+}
+
+/* Apply spin animation to specific links based on user preference */
+@media (prefers-reduced-motion: no-preference) {
+	a:nth-of-type(2) .logo {
+		animation: logo-spin infinite 20s linear; /* Apply infinite spin animation to the logo in the second link */
+	}
+}
+
+/* Styles for the card component */
+.card {
+	padding: 2em; /* Add padding inside the card */
+}
+
+/* Styles for the 'Read the docs' text */
+.read-the-docs {
+	color: #888; /* Set color for the 'Read the docs' text */
+}
