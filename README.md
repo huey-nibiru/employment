@@ -52,4 +52,9 @@
 
 These ideas blend the decentralized nature of blockchain with the familiarity of social media, making it easier for crypto Twitter users to engage with the platform.
 
+### Run In Localhost (vite required)*
+- download contents
+- cd employment
+- npm run dev
+
 
