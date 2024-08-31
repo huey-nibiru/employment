@@ -1,24 +1,24 @@
 // src/Home.tsx
-import "../styles.css"; 
-import { Link } from "react-router-dom";  
-import cube from "../assets/cube.gif";  
-import Ticker from "../components/Ticker";  
-
+import "../styles.css";
+import { Link } from "react-router-dom";
+import cube from "../assets/cube.gif";
+import Ticker from "../components/Ticker";
 
 const Home = () => {
-	
 	return (
 		<div>
-			<Ticker /> 
+			<Ticker />
 			<div className="container">
-				<h1>Employment</h1> 
+				<h1>Employment</h1>
 				<div className="cube-container">
 					{/* Display loading animation with CSS styling */}
-                    {/* This needs to be fixed to adjust for different window sizes */}
+					{/* This needs to be fixed to adjust for different window sizes */}
 					<img src={cube} alt="Loading animation" className="cube-gif" />{" "}
 				</div>
 				{/* this button will connect to the twitter api*/}
-				<button>Sign in with Twitter</button>
+				<Link to="/login">
+					<button>Login</button>
+				</Link>
 				<Link to="/explore">
 					<button>Explore</button>
 				</Link>
@@ -27,4 +27,4 @@ const Home = () => {
 	);
 };
 
-export default Home;  
+export default Home;
