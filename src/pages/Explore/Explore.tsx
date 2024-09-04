@@ -7,15 +7,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 //import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
 
-declare global {
-	interface Window {
-		solana?: any;
-	}
-}
-
-// These are place holder job listings for the explore page
-// There will be a backend that will be used to fetch the job listings
-
 const Explore = () => {
 	const jobListings = [
 		{
@@ -106,47 +97,8 @@ const Explore = () => {
 		},
 	];
 
-	const [walletAddress, setWalletAddress] = useState(null);
-
-	// Function to connect to Phantom wallet
-	const connectWallet = async () => {
-		if (window.solana && window.solana.isPhantom) {
-			try {
-				await window.solana.connect({ onlyIfTrusted: false });
-				const publicKey = window.solana.publicKey.toString();
-				console.log("Connected with Public Key:", publicKey);
-				setWalletAddress(publicKey);
-			} catch (err) {
-				console.error("Wallet connection failed:", err);
-			}
-		} else {
-			alert(
-				"Phantom wallet not found. Please install it from https://phantom.app"
-			);
-		}
-	};
-
-	// Function to disconnect the wallet
-	const disconnectWallet = () => {
-		setWalletAddress(null);
-	};
-
 	return (
 		<div>
-			{/* Navbar Component */}
-			<nav className="navbar">
-				<Link to="/">
-					<img src={aLogo} alt="Logo" className="navbar-logo" />
-				</Link>
-				<div className="navbar-title">AGARTHA</div>
-				<button
-					className="navbar-button"
-					onClick={walletAddress ? disconnectWallet : connectWallet}
-				>
-					{walletAddress ? "Disconnect" : "Connect wallet"}
-				</button>
-			</nav>
-
 			<HoneyCombProp jobListings={jobListings} />
 			<div className="footer"></div>
 		</div>

@@ -1,6 +1,6 @@
 import React from "react";
 import agartha from "../../assets/agartha.jpg";
-
+import "./Honeycomb.css";
 interface JobListing {
 	title: string;
 	username: string;

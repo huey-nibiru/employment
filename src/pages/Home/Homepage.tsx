@@ -6,7 +6,19 @@ import "./Homepage.css";
 
 const Home = () => {
 	return (
-		<div className="home-container">
+		<div>
+			<nav className="navbar">
+				<div className="nav-left">
+					<Link to="/" className="nav-link">
+						Home
+					</Link>
+					<Link to="/explore" className="nav-link">
+						Explore
+					</Link>
+				</div>
+				<div className="nav-center">EMPLOYMENT</div>
+				<div className="nav-right"></div>
+			</nav>
 			<Ticker />
 			<div className="container">
 				<h1>Employment</h1>

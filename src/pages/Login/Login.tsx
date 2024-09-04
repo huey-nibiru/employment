@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 import cube from "../../assets/cube.gif";
 
@@ -26,15 +26,29 @@ const Login: React.FC = () => {
 	};
 
 	return (
-		<div className="login-container">
-			<h1>Login</h1>
-			<div className="cube-container">
-				<img src={cube} alt="Loading animation" className="cube-gif" />
+		<>
+			<nav className="navbar">
+				<div className="nav-left">
+					<Link to="/" className="nav-link">
+						Home
+					</Link>
+					<Link to="/explore" className="nav-link">
+						Explore
+					</Link>
+				</div>
+				<div className="nav-center">EMPLOYMENT</div>
+				<div className="nav-right"></div>
+			</nav>
+			<div className="login-container">
+				<h1>Login</h1>
+				<div className="cube-container">
+					<img src={cube} alt="Loading animation" className="cube-gif" />
+				</div>
+				<button onClick={handleTwitterLogin} className="twitter-login-btn">
+					Connect with Twitter
+				</button>
 			</div>
-			<button onClick={handleTwitterLogin} className="twitter-login-btn">
-				Sign in with Twitter
-			</button>
-		</div>
+		</>
 	);
 };
 

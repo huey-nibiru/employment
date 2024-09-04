@@ -55,6 +55,3 @@ button:hover {
 	object-fit: contain; /* Maintain aspect ratio while scaling */
 }
 
-.home-container {
-	background-color: rgb(77, 16, 16);
-}
