@@ -1,15 +1,11 @@
 // src/Ticker.tsx
 
-import "./Ticker.css"; 
+import "./Ticker.css";
 
 const Ticker = () => {
 	return (
 		<div className="ticker">
-			{" "}
-			{/* Container for the ticker */}
 			<div className="ticker-content">
-				{" "}
-				{/* Inner container for mantras */}
 				<span>
 					{/* EMPLOYMENT MANTRAS  */}
 					💼 "Employment is your only path to freedom." | 📉 "Without work,

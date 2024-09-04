@@ -1,18 +1,23 @@
-/* src/Ticker.css */
-
 /* Styles for the ticker component */
 .ticker {
-	background-color: #000; /* Background color of the ticker */
+	background-color: #000000; /* Background color of the ticker */
 	color: #fff; /* Text color for the ticker content */
 	font-size: 1.2em; /* Font size for the ticker text */
-	overflow: hidden; /* Hide any content that overflows the ticker container */
+	overflow: hidden; /* Changed from auto to hidden */
 	white-space: nowrap; /* Prevent line breaks, ensuring text stays on a single line */
+	width: 100%; /* Add this line */
+	position: relative; /* Add this line */
+	height: 40px; /* Add a fixed height */
+	line-height: 40px; /* Center the text vertically */
 }
 
 /* Styles for the content inside the ticker */
 .ticker-content {
-	display: inline-block; /* Allow the ticker content to be inline with animation */
-	animation: ticker 40s linear infinite; /* Animate the ticker content with a duration of 40 seconds, in a linear fashion, repeating infinitely */
+	display: inline-block; /* Changed from flex to inline-block */
+	animation: ticker 60s linear infinite; /* Animate the ticker content with a duration of 40 seconds, in a linear fashion, repeating infinitely */
+	position: absolute; /* Add this line */
+	left: 100%; /* Add this line */
+	top: 0; /* Add this line */
 }
 
 /* Keyframes for the ticker animation */
@@ -24,7 +29,7 @@
 	}
 	100% {
 		transform: translateX(
-			-100%
+			-125%
 		); /* End the animation with the content off the left side of the container */
 	}
 }
