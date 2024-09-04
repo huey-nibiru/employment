@@ -2,7 +2,7 @@ import "./Explore.css";
 import agartha from "../../assets/agartha.jpg";
 import aLogo from "../../assets/aLogo.jpg";
 import HoneyCombProp from "../../components/Honeycomb/Honeycomb";
-
+import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 //import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
@@ -99,6 +99,7 @@ const Explore = () => {
 
 	return (
 		<div>
+			<Navbar />
 			<HoneyCombProp jobListings={jobListings} />
 			<div className="footer"></div>
 		</div>

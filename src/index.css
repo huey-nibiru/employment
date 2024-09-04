@@ -22,7 +22,7 @@ a {
 }
 
 a:hover {
-	color: #535bf2; /* Change link color on hover */
+	color: #000000; /* Change link color on hover */
 }
 
 /* Styles for the body */
@@ -33,12 +33,6 @@ body {
 	min-width: 320px; /* Set minimum width for the body */
 	min-height: 100vh; /* Set minimum height to cover the viewport */
 	background-color: #000000;
-}
-
-/* Styles for h1 headers */
-h1 {
-	font-size: 3.2em; /* Set the font size for h1 headers */
-	line-height: 1.1; /* Set line height for h1 headers */
 }
 
 /* Styles for buttons */
@@ -55,7 +49,7 @@ button {
 }
 
 button:hover {
-	border-color: #646cff; /* Change border color on hover */
+	border-color: #ffffff; /* Change border color on hover */
 }
 
 button:focus,
@@ -71,7 +65,7 @@ button:focus-visible {
 	}
 
 	a:hover {
-		color: #747bff; /* Change link color on hover in light mode */
+		color: #ffffff; /* Change link color on hover in light mode */
 	}
 
 	button {

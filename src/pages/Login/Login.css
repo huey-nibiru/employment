@@ -1,68 +1,60 @@
-.login-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 50vh;
-	width: 50vh;
-	background-color: #ffffff;
+/* src/styles.css */
+
+/* Styles for the body element */
+body {
+	font-family: Arial, sans-serif; /* Set the font family for the body */
+	margin: 0; /* Remove default margin */
+	padding: 0; /* Remove default padding */
+	display: flex; /* Use flexbox layout */
+	justify-content: center; /* Center content horizontally */
+	align-items: center; /* Center content vertically */
+	background-color: rgb(0, 0, 0); /* Set background color to black */
 }
 
+/* Styles for h1 headers */
 h1 {
-	font-size: 2.5rem;
-	margin-bottom: 2rem;
+	color: white; /* Set text color for h1 headers */
 }
 
-.cube-container {
-	margin-bottom: 2rem;
+/* Styles for the container */
+.login-container {
+	text-align: center; /* Center-align text within the container */
+	padding: 50px; /* Add padding around the container */
+	border-radius: 8px; /* Round corners of the container */
+	background-color: rgb(0, 0, 0); /* Set background color to white */
+	width: 100%;
 }
 
-.cube-gif {
-	width: 100px;
-	height: 100px;
+/* Styles for buttons */
+button {
+	margin: 10px; /* Add margin around buttons */
+	padding: 10px 20px; /* Set padding for button text */
+	font-size: 16px; /* Set font size for button text */
+	cursor: pointer; /* Change cursor to pointer on hover */
+	border: none; /* Remove default border */
+	border-radius: 5px; /* Round corners of buttons */
+	background-color: #ffffff; /* Set background color to Bootstrap primary color */
+	color: white; /* Set text color to white */
+	transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-.twitter-login-btn {
-	background-color: #1da1f2;
+button:hover {
+	background-color: #2563eb; /* Change background color to darker shade on hover */
+}
+
+/* Styles for the cube container */
+.x-container {
+	padding: 2px; /* Add padding around the cube container */
+	background-color: black; /* Set background color to white */
+}
+
+/* Styles for the cube GIF */
+.x-gif {
+	height: 200px; /* Set the height of the cube GIF */
+	object-fit: contain; /* Maintain aspect ratio while scaling */
+}
+h1 {
 	color: white;
-	border: none;
-	padding: 10px 20px;
-	font-size: 1rem;
-	cursor: pointer;
-	border-radius: 5px;
-	transition: background-color 0.3s ease;
-}
-
-.twitter-login-btn:hover {
-	background-color: #0c85d0;
-}
-.navbar {
-	background-color: white;
-	padding: 1rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.nav-left,
-.nav-right {
-	flex: 1;
-}
-
-.nav-center {
-	font-weight: bold;
-	font-size: 1.2rem;
-	color: black;
-}
-
-.nav-link {
-	color: #333;
-	text-decoration: none;
-	margin-right: 1rem;
-	font-weight: bold;
-}
-
-.nav-link:hover {
-	color: #1da1f2;
+	font-size: 3.2em; /* Set the font size for h1 headers */
+	line-height: 1.1; /* Set line height for h1 headers */
 }

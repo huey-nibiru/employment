@@ -11,11 +11,6 @@ body {
 	background-color: rgb(0, 0, 0); /* Set background color to black */
 }
 
-/* Styles for h1 headers */
-h1 {
-	color: black; /* Set text color for h1 headers */
-}
-
 /* Styles for the container */
 .homepage-container {
 	text-align: center; /* Center-align text within the container */
@@ -23,6 +18,7 @@ h1 {
 	border-radius: 8px; /* Round corners of the container */
 	background-color: white; /* Set background color to white */
 	width: 100%;
+	color: black;
 }
 
 /* Styles for buttons */
@@ -52,4 +48,10 @@ button:hover {
 .cube-gif {
 	height: 200px; /* Set the height of the cube GIF */
 	object-fit: contain; /* Maintain aspect ratio while scaling */
+}
+
+h1 {
+	color: black;
+	font-size: 3.2em; /* Set the font size for h1 headers */
+	line-height: 1.1; /* Set line height for h1 headers */
 }

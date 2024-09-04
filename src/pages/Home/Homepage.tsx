@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import cube from "../../assets/cube.gif";
 import Ticker from "../../components/Ticker/Ticker";
-import Navbar from "../../components/Navbar/Navbar"; // Add this import
+import Navbar from "../../components/Navbar/Navbar";
 import "./Homepage.css";
 
 const Home = () => {
