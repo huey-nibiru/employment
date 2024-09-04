@@ -1,6 +1,7 @@
 import "./Explore.css";
-import agartha from "../assets/agartha.jpg";
-import aLogo from "../assets/aLogo.jpg";
+import agartha from "../../assets/agartha.jpg";
+import aLogo from "../../assets/aLogo.jpg";
+import HoneyCombProp from "../../components/Honeycomb/Honeycomb";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -146,14 +147,7 @@ const Explore = () => {
 				</button>
 			</nav>
 
-			<div className="honeycomb">
-				{jobListings.map((job, index) => (
-					<div key={index} className="honeycomb-cell">
-						<img className="honeycomb-cell_img" src={agartha} alt={job.title} />
-						<div className="honeycomb-cell_title"> {job.title}</div>
-					</div>
-				))}
-			</div>
+			<HoneyCombProp jobListings={jobListings} />
 			<div className="footer"></div>
 		</div>
 	);

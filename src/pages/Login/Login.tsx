@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import cube from "../assets/cube.gif";
+import cube from "../../assets/cube.gif";
 
 const Login: React.FC = () => {
 	const navigate = useNavigate();
@@ -30,7 +30,7 @@ const Login: React.FC = () => {
 			<h1>Login</h1>
 			<div className="cube-container">
 				<img src={cube} alt="Loading animation" className="cube-gif" />
-				</div>
+			</div>
 			<button onClick={handleTwitterLogin} className="twitter-login-btn">
 				Sign in with Twitter
 			</button>
@@ -43,7 +43,8 @@ export default Login;
 // Helper functions for OAuth 2.0 PKCE
 function generateRandomString(length: number) {
 	let text = "";
-	const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	const possible =
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 	for (let i = 0; i < length; i++) {
 		text += possible.charAt(Math.floor(Math.random() * possible.length));
 	}

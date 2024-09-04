@@ -1,12 +1,12 @@
 // src/Home.tsx
-import "../styles.css";
 import { Link } from "react-router-dom";
-import cube from "../assets/cube.gif";
-import Ticker from "../components/Ticker";
+import cube from "../../assets/cube.gif";
+import Ticker from "../../components/Ticker/Ticker";
+import "./Homepage.css";
 
 const Home = () => {
 	return (
-		<div>
+		<div className="home-container">
 			<Ticker />
 			<div className="container">
 				<h1>Employment</h1>

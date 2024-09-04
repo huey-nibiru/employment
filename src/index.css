@@ -6,7 +6,7 @@
 
 	color-scheme: light dark; /* Specify the color schemes supported */
 	color: rgba(255, 255, 255, 0.87); /* Set the default text color */
-	background-color: #242424; /* Set the default background color */
+	background-color: #000000; /* Set the default background color */
 
 	font-synthesis: none; /* Disable font synthesis */
 	text-rendering: optimizeLegibility; /* Optimize text rendering for legibility */
@@ -32,6 +32,7 @@ body {
 	place-items: center; /* Center items in the flex container */
 	min-width: 320px; /* Set minimum width for the body */
 	min-height: 100vh; /* Set minimum height to cover the viewport */
+	background-color: #000000;
 }
 
 /* Styles for h1 headers */

@@ -1,10 +1,10 @@
 // src/App.tsx
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import Router and routing components
-import Home from "./pages/Homepage"; // Import the Home component
-import Login from "./pages/Login"; // Import the login component
-import Explore from "./pages/Explore"; // Import the login component
-import TwitterCallback from "./components/TwitterCallback";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Homepage";
+import Login from "./pages/Login/Login";
+import Explore from "./pages/Explore/Explore";
+import TwitterCallback from "./components/Twitter/TwitterCallback";
 
 const App = () => {
 	return (
