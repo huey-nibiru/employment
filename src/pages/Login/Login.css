@@ -20,23 +20,6 @@ body {
 	width: 100%;
 }
 
-/* Styles for buttons */
-button {
-	margin: 10px; /* Add margin around buttons */
-	padding: 10px 20px; /* Set padding for button text */
-	font-size: 16px; /* Set font size for button text */
-	cursor: pointer; /* Change cursor to pointer on hover */
-	border: none; /* Remove default border */
-	border-radius: 5px; /* Round corners of buttons */
-	background-color: #ffffff; /* Set background color to Bootstrap primary color */
-	color: white; /* Set text color to white */
-	transition: background-color 0.3s; /* Smooth transition for background color */
-}
-
-button:hover {
-	background-color: #2563eb; /* Change background color to darker shade on hover */
-}
-
 /* Styles for the cube container */
 .x-container {
 	padding: 2px; /* Add padding around the cube container */

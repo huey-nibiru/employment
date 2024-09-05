@@ -14,10 +14,6 @@ const Login = () => {
 				<div className="x-container">
 					<img src={xLogo} alt="X Logo" className="x-gif" />{" "}
 				</div>
-
-				<Link to="/login">
-					<button>Login With Twitter</button>
-				</Link>
 			</div>
 		</div>
 	);
