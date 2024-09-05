@@ -27,6 +27,9 @@ const Navbar: React.FC = () => {
 					<Link to="/explore" className="navbar-link">
 						Explore
 					</Link>
+					<Link to="/login" className="navbar-link">
+						Login
+					</Link>
 				</div>
 				<div className="navbar-center">
 					<span className="navbar-title">EMPLOYMENT</span>

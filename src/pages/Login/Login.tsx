@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import xLogo from "../../assets/x.gif";
 import Ticker from "../../components/Ticker/Ticker";
 import Navbar from "../../components/Navbar/Navbar";
