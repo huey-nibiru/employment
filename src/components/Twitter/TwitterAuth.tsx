@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
+import "./TwitterAuth.css";
 
 // Initialize Supabase client
-const supabaseUrl = "YOUR_SUPABASE_URL";
-const supabaseKey = "YOUR_SUPABASE_ANON_KEY";
+const supabaseUrl = "https://amtxwkqlouwsxedgcdvh.supabase.co";
+const supabaseKey =
+	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtdHh3a3Fsb3V3c3hlZGdjZHZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjI4MTk4MzIsImV4cCI6MjAzODM5NTgzMn0.-MKb9jVx8QcT9NDfM8rYNFbjd7rfPmWbWExvSgF5cms";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface TwitterUser {
@@ -69,15 +71,25 @@ const TwitterAuth: React.FC = () => {
 	};
 
 	return (
-		<div>
+		<div className="twitter-auth-container">
 			{user ? (
 				<div>
 					<h2>Welcome, {user.username}!</h2>
-					<img src={user.profilePicture} alt="Profile" width="50" height="50" />
+					<img
+						src={user.profilePicture}
+						alt="Profile"
+						width="50"
+						height="50"
+						onError={(e) => {
+							e.currentTarget.alt = "Auth error";
+						}}
+					/>
 					<button onClick={signOut}>Sign Out</button>
 				</div>
 			) : (
-				<button onClick={signInWithTwitter}>Sign in with Twitter</button>
+				<button className="twitter-sign-in-button" onClick={signInWithTwitter}>
+					Sign in with Twitter
+				</button>
 			)}
 		</div>
 	);
