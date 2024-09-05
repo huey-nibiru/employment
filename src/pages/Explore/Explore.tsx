@@ -34,7 +34,7 @@ const Explore = () => {
 			image: "https://via.placeholder.com/150",
 		},
 		{
-			title: "Poster/Chief Vibes Officer",
+			title: "Chief Vibes Officer",
 			username: "@auditMaster",
 			price: "6 SOL",
 			image: "https://via.placeholder.com/150",
@@ -78,7 +78,7 @@ const Explore = () => {
 			image: "https://via.placeholder.com/150",
 		},
 		{
-			title: "Event Coordinator",
+			title: "Pro Retard",
 			username: "@nftArtist",
 			price: "3 SOL",
 			image: "",
