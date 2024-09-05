@@ -72,3 +72,7 @@ button:focus-visible {
 		background-color: #f9f9f9; /* Set background color for buttons in light mode */
 	}
 }
+h1 {
+	font-size: 3.2em; /* Set the font size for h1 headers */
+	line-height: 1.1; /* Set line height for h1 headers */
+}

@@ -11,11 +11,6 @@ body {
 	background-color: rgb(0, 0, 0); /* Set background color to black */
 }
 
-/* Styles for h1 headers */
-h1 {
-	color: white; /* Set text color for h1 headers */
-}
-
 /* Styles for the container */
 .login-container {
 	text-align: center; /* Center-align text within the container */
@@ -52,9 +47,4 @@ button:hover {
 .x-gif {
 	height: 200px; /* Set the height of the cube GIF */
 	object-fit: contain; /* Maintain aspect ratio while scaling */
-}
-h1 {
-	color: white;
-	font-size: 3.2em; /* Set the font size for h1 headers */
-	line-height: 1.1; /* Set line height for h1 headers */
 }

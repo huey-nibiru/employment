@@ -11,7 +11,7 @@ const Home = () => {
 			<Navbar />
 			<Ticker />
 			<div className="homepage-container">
-				<h1>Employment</h1>
+				<h1 color="black">Employment</h1>
 				<div className="cube-container">
 					<img src={cube} alt="Spinning Cube" className="cube-gif" />{" "}
 				</div>
