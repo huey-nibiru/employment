@@ -29,14 +29,12 @@ button {
 	cursor: pointer; /* Change cursor to pointer on hover */
 	border: none; /* Remove default border */
 	border-radius: 5px; /* Round corners of buttons */
-	background-color: #007bff; /* Set background color to Bootstrap primary color */
+	background-color: white; /* Set background color to Bootstrap primary color */
 	color: white; /* Set text color to white */
 	transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-button:hover {
-	background-color: #0056b3; /* Change background color to darker shade on hover */
-}
+
 
 /* Styles for the cube container */
 .cube-container {
@@ -53,4 +51,8 @@ button:hover {
 h1 {
 	font-size: 3.2em; /* Set the font size for h1 headers */
 	line-height: 1.1; /* Set line height for h1 headers */
+}
+
+.twitter-login-btn:hover {
+	background-color: #1DA1F2;
 }

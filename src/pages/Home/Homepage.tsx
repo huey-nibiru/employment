@@ -17,7 +17,7 @@ const Home = () => {
 				</div>
 
 				<Link to="/login">
-					<button>Login With Twitter</button>
+					<button className="twitter-login-btn">Login With Twitter</button>
 				</Link>
 			</div>
 		</div>
