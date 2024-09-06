@@ -13,6 +13,12 @@ const Home = () => {
 				<div className="cube-container">
 					<img src={cube} alt="Spinning Cube" className="cube-gif" />{" "}
 				</div>
+				<button
+					className="new-listing-button"
+					style={{ backgroundColor: "gold", color: "black" }}
+				>
+					New Listing
+				</button>
 			</div>
 		</div>
 	);
