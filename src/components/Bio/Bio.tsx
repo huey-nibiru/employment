@@ -28,7 +28,7 @@ const Bio: React.FC<BioProps> = ({
 					</Typography>
 				</Box>
 			</Box>
-			<Typography variant="body1" paragraph color="white">
+			<Typography variant="body1" gutterBottom color="white">
 				{description}
 			</Typography>
 			<Rating value={rating} readOnly max={5} />

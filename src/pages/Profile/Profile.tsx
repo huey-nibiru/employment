@@ -9,10 +9,10 @@ const Profile = () => {
 		<div>
 			<Navbar />
 			<Bio
-				name="Based Dom"
+				name="Cyberking"
 				profilePicture="/path/to/profile-pic.jpg"
-				basicInfo="Niggabutt Enjoyer | Atlanta"
-				description="Passionate about Nigger ass."
+				basicInfo="Real Nigga | NYC"
+				description="There are no peasants in the kingdom of Heaven."
 				rating={4.5}
 			/>
 		</div>
