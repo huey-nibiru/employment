@@ -7,6 +7,12 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    // ... other options
+    "paths": {
+      "@mui/material": ["./node_modules/@mui/material"]
+    }
+  }
 }
 
