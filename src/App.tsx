@@ -1,10 +1,8 @@
-// src/App.tsx
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Homepage";
 import Login from "./pages/Login/Login";
 import Explore from "./pages/Explore/Explore";
-import TwitterCallback from "./components/Twitter/TwitterAuth";
+import Profile from "./pages/Profile/Profile";
 
 const App = () => {
 	return (
@@ -14,7 +12,8 @@ const App = () => {
 				{" "}
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
-				<Route path="/explore" element={<Explore />} />{" "}
+				<Route path="/explore" element={<Explore />} />
+				<Route path="/profile" element={<Profile />} />
 			</Routes>
 		</Router>
 	);
