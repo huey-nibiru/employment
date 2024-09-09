@@ -51,12 +51,18 @@ body {
 	padding: 10px; /* Add padding for larger input area */
 	font-size: 16px; /* Increase font size for better readability */
 }
-
+.login-signup-toggle {
+	flex-direction: column;
+	
+}
 .toggle {
 	position: relative;
 	display: inline-block;
 	width: 60px;
 	height: 34px;
+	display: flex;
+	flex-direction: column; /* Stack elements vertically */
+	align-items: center; /* Center align items */
 }
 
 .toggle input {
@@ -98,8 +104,8 @@ input:checked + .slider:before {
 }
 
 .login-signup-toggle {
-    display: flex;               /* Use flexbox for centering */
-    justify-content: center;     /* Center horizontally */
-    align-items: center;         /* Center vertically */
-    margin: 20px 0;             /* Optional: add some margin */
+	display: flex; /* Use flexbox for centering */
+	justify-content: center; /* Center horizontally */
+	align-items: center; /* Center vertically */
+	margin: 20px 0; /* Optional: add some margin */
 }

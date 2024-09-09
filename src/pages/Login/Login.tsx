@@ -24,8 +24,12 @@ const Login = () => {
 			</div>
 
 			<div className="login-signup-toggle">
-				{/* Replace label and checkbox with a toggle button */}
+				{/* Display text based on state */}
+				<span style={{ marginBottom: "10px" }}>
+					{isLogin ? "Login" : "Sign Up"}
+				</span>{" "}
 				<label className="toggle">
+					{/* Moved span above the slider */}
 					<input
 						type="checkbox"
 						checked={!isLogin}
@@ -33,7 +37,6 @@ const Login = () => {
 					/>{" "}
 					<span className="slider"></span>
 				</label>
-				<span>{isLogin ? "Login" : "Sign Up"}</span>{" "}
 				{/* Display text based on state */}
 			</div>
 
