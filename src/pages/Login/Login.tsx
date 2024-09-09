@@ -43,9 +43,21 @@ const Login = () => {
 			<div className="credentials">
 				{" "}
 				{/* New container for credentials */}
-				<input type="text" placeholder="Username" /> {/* Username field */}
-				{!isLogin && <input type="email" placeholder="Email" />}{" "}
+				{!isLogin && (
+					<input
+						type="email"
+						placeholder="Email"
+						onChange={(e) => {
+							const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for email validation
+							if (!emailRegex.test(e.target.value)) {
+								// Handle invalid email
+								console.log("Invalid email format");
+							}
+						}}
+					/>
+				)}{" "}
 				{/* Email field for signup */}
+				<input type="text" placeholder="Username" /> {/* Username field */}
 				<input type="password" placeholder="Password" /> {/* Password field */}
 				<button className="login-signup-button">
 					{isLogin ? "Login" : "Sign Up"}
