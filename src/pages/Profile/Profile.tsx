@@ -2,7 +2,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./Profile.css";
 import Bio from "../../components/Bio/Bio";
 import ProfileNav from "../../components/ProfileNav/ProfileNav";
-
+import ProfileMain from "../../components/ProfileMain/ProfileMain";
 // In your render method or functional component
 
 const Profile = () => {
@@ -19,7 +19,12 @@ const Profile = () => {
 				/>
 			</div>
 			*/}
-			<ProfileNav />
+			{/*
+			<div className="profileNavContainer">
+				<ProfileNav />
+			</div>
+			*/}
+			<ProfileMain />
 		</div>
 	);
 };

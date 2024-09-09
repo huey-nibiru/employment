@@ -1,0 +1,60 @@
+.profile-main {
+	padding: 20px;
+	background-color: #f9f9f9;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	color: black; /* Changed text color to black */
+}
+
+.user-bio,
+.skills-endorsements,
+.available-services,
+.earnings-escrow {
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	color: black; /* Changed text color to black */
+}
+
+.skills-icons span {
+	margin-right: 10px;
+	color: black; /* Changed text color to black */
+}
+
+.skills-tags {
+	display: flex;
+	flex-wrap: wrap;
+	color: black; /* Changed text color to black */
+}
+
+.tag {
+	background-color: #e0e0e0;
+	border-radius: 15px;
+	padding: 5px 10px;
+	margin: 5px;
+	color: black; /* Changed text color to black */
+}
+
+button {
+	background-color: #007bff;
+	color: black; /* Changed text color to black */
+	border: none;
+	border-radius: 5px;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+button.hire-me-btn {
+	background-color: #ffd700; /* Changed Hire Me button color to Gold */
+}
+
+button:hover {
+	background-color: #0056b3;
+	color: black; /* Changed text color to black */
+}
+
+button.hire-me-btn:hover {
+	background-color: #ffd700; /* Changed Hire Me button hover color to Gold */
+}
