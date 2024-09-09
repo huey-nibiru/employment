@@ -2,17 +2,24 @@
 	border: 1px solid #ccc;
 	border-radius: 8px;
 	padding: 16px;
-	max-width: 400px;
+	max-width: 100vh;
+	margin-top: 100px; /* Changed margin to 0 for full header */
+	width: 1000px; /* Added width to make it full width */
+	display: flex;
+	flex-direction: column; /* Ensure vertical stacking */
+	align-items: center; /* Center items horizontally */
 }
 
 .headerContainer {
 	display: flex;
-	align-items: center;
+	flex-direction: column; /* Stack Avatar and nameContainer vertically */
+	align-items: center; /* Center nameContainer below Avatar */
 	margin-bottom: 16px;
 }
 
 .avatar {
-	width: 80px;
-	height: 80px;
-	margin-right: 16px;
+	width: 100px; /* Increased width */
+	height: 100px; /* Increased height */
+	margin: 0 auto; /* Centered the avatar */
+	display: block; /* Ensured it behaves as a block element for centering */
 }

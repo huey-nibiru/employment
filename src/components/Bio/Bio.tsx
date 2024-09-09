@@ -21,7 +21,7 @@ const Bio: React.FC<BioProps> = ({
 		<Box className="bioContainer">
 			<Box className="headerContainer">
 				<Avatar src={profilePicture} alt={name} className="avatar" />
-				<Box>
+				<Box className="nameContainer">
 					<Typography variant="h5">{name}</Typography>
 					<Typography variant="body2" color="white">
 						{basicInfo}

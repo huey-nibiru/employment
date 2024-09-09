@@ -1,0 +1,33 @@
+.achievements-container {
+	padding: 20px;
+	background-color: #f9f9f9;
+	border-radius: 8px;
+	color: black; /* Change text color to black for the container */
+}
+
+.badges-section,
+.tokens-section {
+	margin: 15px 0;
+}
+
+.badge,
+.token,
+.milestone {
+	display: inline-block;
+	margin: 5px;
+	padding: 10px;
+	background-color: #e0e0e0;
+	border-radius: 5px;
+	font-weight: bold;
+	color: black; /* Change text color to black */
+}
+
+/* Add this rule for headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: black; /* Change all header text color to black */
+}
