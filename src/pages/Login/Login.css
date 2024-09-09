@@ -33,21 +33,73 @@ body {
 }
 
 .credentials {
-    display: flex;               /* Use flexbox for centering */
-    flex-direction: column;     /* Stack items vertically */
-    align-items: center;        /* Center items horizontally */
-    justify-content: center;     /* Center items vertically */
-    margin: auto;               /* Center the container itself */
-    width: 100%;                /* Full width */
-    max-width: 400px;          /* Optional: limit max width */
-    padding: 20px;             /* Optional: add some padding */
-    border: 1px solid #ccc;    /* Optional: add a border */
-    border-radius: 8px;        /* Optional: rounded corners */
+	display: flex; /* Use flexbox for centering */
+	flex-direction: column; /* Stack items vertically */
+	align-items: center; /* Center items horizontally */
+	justify-content: center; /* Center items vertically */
+	margin: auto; /* Center the container itself */
+	width: 100%; /* Full width */
+	max-width: 400px; /* Optional: limit max width */
+	padding: 20px; /* Optional: add some padding */
+	border: 1px solid #ccc; /* Optional: add a border */
+	border-radius: 8px; /* Optional: rounded corners */
 }
 
 .credentials input {
-    margin-bottom: 10px; /* Add space between input fields */
-    width: 100%;         /* Make input fields full width */
-    padding: 10px;      /* Add padding for larger input area */
-    font-size: 16px;    /* Increase font size for better readability */
+	margin-bottom: 10px; /* Add space between input fields */
+	width: 100%; /* Make input fields full width */
+	padding: 10px; /* Add padding for larger input area */
+	font-size: 16px; /* Increase font size for better readability */
+}
+
+.toggle {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.toggle input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	transition: 0.4s;
+	border-radius: 34px;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	transition: 0.4s;
+	border-radius: 50%;
+}
+
+input:checked + .slider {
+	background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+	transform: translateX(26px);
+}
+
+.login-signup-toggle {
+    display: flex;               /* Use flexbox for centering */
+    justify-content: center;     /* Center horizontally */
+    align-items: center;         /* Center vertically */
+    margin: 20px 0;             /* Optional: add some margin */
 }
