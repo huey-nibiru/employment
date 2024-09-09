@@ -109,3 +109,15 @@ input:checked + .slider:before {
 	align-items: center; /* Center vertically */
 	margin: 20px 0; /* Optional: add some margin */
 }
+
+
+.login-signup-button {
+	background-color: #1da1f2;
+	color: white;
+	border: none;
+	border-radius: 30px;
+	padding: 10px 20px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}

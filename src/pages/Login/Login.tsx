@@ -47,6 +47,9 @@ const Login = () => {
 				{!isLogin && <input type="email" placeholder="Email" />}{" "}
 				{/* Email field for signup */}
 				<input type="password" placeholder="Password" /> {/* Password field */}
+				<button className="login-signup-button">
+					{isLogin ? "Login" : "Sign Up"}
+				</button>
 			</div>
 
 			<div className="twitter-auth-container">
