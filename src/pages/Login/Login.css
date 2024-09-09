@@ -31,3 +31,23 @@ body {
 	height: 200px; /* Set the height of the cube GIF */
 	object-fit: contain; /* Maintain aspect ratio while scaling */
 }
+
+.credentials {
+    display: flex;               /* Use flexbox for centering */
+    flex-direction: column;     /* Stack items vertically */
+    align-items: center;        /* Center items horizontally */
+    justify-content: center;     /* Center items vertically */
+    margin: auto;               /* Center the container itself */
+    width: 100%;                /* Full width */
+    max-width: 400px;          /* Optional: limit max width */
+    padding: 20px;             /* Optional: add some padding */
+    border: 1px solid #ccc;    /* Optional: add a border */
+    border-radius: 8px;        /* Optional: rounded corners */
+}
+
+.credentials input {
+    margin-bottom: 10px; /* Add space between input fields */
+    width: 100%;         /* Make input fields full width */
+    padding: 10px;      /* Add padding for larger input area */
+    font-size: 16px;    /* Increase font size for better readability */
+}
