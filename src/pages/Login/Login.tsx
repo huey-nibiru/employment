@@ -26,10 +26,15 @@ const Login = () => {
 			<div className="login-signup-toggle">
 				{/* Replace label and checkbox with a toggle button */}
 				<label className="toggle">
-					<input type="checkbox" />{" "}
-					{/* Added closing slash for self-closing tag */}
+					<input
+						type="checkbox"
+						checked={!isLogin}
+						onChange={toggleLoginSignup} // Update state on change
+					/>{" "}
 					<span className="slider"></span>
 				</label>
+				<span>{isLogin ? "Login" : "Sign Up"}</span>{" "}
+				{/* Display text based on state */}
 			</div>
 
 			<div className="credentials">
