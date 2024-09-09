@@ -1,0 +1,31 @@
+.profile-tabs {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.tab-buttons {
+	display: flex;
+	background-color: #f1f1f1;
+}
+
+.tab-buttons button {
+	flex: 1;
+	padding: 10px;
+	border: none;
+	cursor: pointer;
+	background: transparent;
+	transition: background 0.3s;
+	color: black;
+}
+
+.tab-buttons button:hover {
+	background-color: #ddd;
+}
+
+.tab-content {
+	padding: 20px;
+	background-color: #fff;
+}
