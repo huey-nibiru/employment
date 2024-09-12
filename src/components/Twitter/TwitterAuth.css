@@ -10,16 +10,7 @@
 	margin: 0 auto;
 }
 
-.welcomeMessage {
-	font-size: 1.2rem;
-	margin-bottom: 10px;
-	color: #14171a;
-}
 
-.profilePicture {
-	border-radius: 50%;
-	margin-bottom: 15px;
-}
 
 .twitter-sign-in-button {
 	background-color: #1da1f2;
@@ -36,13 +27,6 @@
 	background-color: #65bef4;
 }
 
-.signOutButton {
-	background-color: #e0245e;
-}
-
-.signOutButton:hover {
-	background-color: #c51f4a;
-}
 .twitter-auth-container {
 	display: flex;
 	justify-content: center;
