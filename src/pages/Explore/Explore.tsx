@@ -82,7 +82,7 @@ const Explore = () => {
 			title: "Pro Retard",
 			username: "@nftArtist",
 			price: "3 SOL",
-			image: "",
+			image: "https://via.placeholder.com/150",
 		},
 		{
 			title: "Supplier",

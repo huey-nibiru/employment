@@ -12,7 +12,6 @@ interface HoneyCombProp {
 	jobListings: JobListing[];
 }
 
-
 const HoneyCombProp: React.FC<HoneyCombProp> = ({ jobListings }) => {
 	return (
 		<div className="honeycomb">

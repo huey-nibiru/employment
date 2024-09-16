@@ -1,27 +1,43 @@
 .listview {
-    
-    max-height: 100vh; /* Set max height to full viewport height */
+	max-height: 100vh; /* Set max height to full viewport height */
 }
 
 .listview-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc; /* Adds a separator between items */
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border-bottom: 1px solid #ccc; /* Adds a separator between items */
+	justify-content: space-between; /* Distribute space between items */
 }
 
-.listview-item_img {
-    width: 50px; /* Adjust image size */
-    height: 50px; /* Adjust image size */
-    margin-right: 10px; /* Space between image and text */
+.listview-item_img,
+.listview-header_image {
+	width: 50px; /* Adjust image size */
+	height: 50px; /* Adjust image size */
+	margin-right: 10px; /* Space between image and text */
 }
 
-.listview-item_title {
-    font-weight: bold;
+.listview-item_title,
+.listview-header_title {
+	flex: 1; /* Allow title to take available space */
+	margin-right: 40px; /* Space between title and username */
+	margin-left: 40px; /* Space between title and image */
+	width: 400px;
 }
 
 .listview-item_username,
+.listview-header_username,
+.listview-header_price,
 .listview-item_price {
-    font-size: 0.9em; /* Smaller font for username and price */
-    color: #666; /* Lighter color for secondary text */
+	flex: 1; /* Allow username and price to take equal space */
+	font-size: 0.9em; /* Smaller font for username and price */
+	color: #666; /* Lighter color for secondary text */
+	margin-right: 10px; /* Space between username and price */
+}
+
+.listview-header {
+	display: flex;
+	justify-content: space-between; /* Aligns header items evenly */
+	font-weight: bold; /* Makes header text bold */
+	padding: 10px 0; /* Adds padding for spacing */
 }
