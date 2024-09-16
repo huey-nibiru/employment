@@ -1,0 +1,27 @@
+.listview {
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 400px; /* Set a max height for the scrollable area */
+}
+
+.listview-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Adds a separator between items */
+}
+
+.listview-item_img {
+    width: 50px; /* Adjust image size */
+    height: 50px; /* Adjust image size */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.listview-item_title {
+    font-weight: bold;
+}
+
+.listview-item_username,
+.listview-item_price {
+    font-size: 0.9em; /* Smaller font for username and price */
+    color: #666; /* Lighter color for secondary text */
+}

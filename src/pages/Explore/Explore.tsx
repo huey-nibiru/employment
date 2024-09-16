@@ -5,6 +5,7 @@ import HoneyCombProp from "../../components/Honeycomb/Honeycomb";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Listview from "../../components/Listview/Listview"; // Import ListView component
 //import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
 
 const Explore = () => {
@@ -95,13 +96,30 @@ const Explore = () => {
 			price: "3 SOL",
 			image: "https://via.placeholder.com/150",
 		},
-		
 	];
+
+	const [view, setView] = useState("honeycomb"); // State to manage view type
 
 	return (
 		<div>
 			<Navbar />
-			<HoneyCombProp jobListings={jobListings} />
+			<div className="button-container">
+				{" "}
+				{/* Added a container for buttons */}
+				<button className="view-toggle" onClick={() => setView("honeycomb")}>
+					Honeycomb View
+				</button>
+				<button className="view-toggle" onClick={() => setView("list")}>
+					List View
+				</button>
+			</div>
+			<div jobs-container>
+				{view === "honeycomb" ? (
+					<HoneyCombProp jobListings={jobListings} />
+				) : (
+					<Listview jobListings={jobListings} />
+				)}
+			</div>
 			<div className="footer"></div>
 		</div>
 	);

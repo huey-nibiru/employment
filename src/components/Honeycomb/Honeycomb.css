@@ -12,8 +12,10 @@
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 0;
-	padding-top: 100px;
+	padding-top: 0px;
 	transform: translateY(40px);
+	
+	
 }
 
 .honeycomb-cell {

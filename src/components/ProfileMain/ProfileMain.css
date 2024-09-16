@@ -50,11 +50,6 @@ button.hire-me-btn {
 	background-color: #ffd700; /* Changed Hire Me button color to Gold */
 }
 
-button:hover {
-	background-color: #0056b3;
-	color: black; /* Changed text color to black */
-}
-
 button.hire-me-btn:hover {
 	background-color: #ffd700; /* Changed Hire Me button hover color to Gold */
 }
