@@ -1,6 +1,6 @@
 .listview {
-    overflow-y: auto; /* Enables vertical scrolling */
-    max-height: 400px; /* Set a max height for the scrollable area */
+    
+    max-height: 100vh; /* Set max height to full viewport height */
 }
 
 .listview-item {
