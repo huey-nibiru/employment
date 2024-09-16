@@ -12,6 +12,7 @@ interface HoneyCombProp {
 	jobListings: JobListing[];
 }
 
+// honeycomb must have scroll functionality
 const HoneyCombProp: React.FC<HoneyCombProp> = ({ jobListings }) => {
 	return (
 		<div className="honeycomb">

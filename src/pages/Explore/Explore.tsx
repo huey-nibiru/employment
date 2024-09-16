@@ -95,6 +95,7 @@ const Explore = () => {
 			price: "3 SOL",
 			image: "https://via.placeholder.com/150",
 		},
+		
 	];
 
 	return (
