@@ -14,3 +14,5 @@ if (!supabaseKey) {
 }
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
+
+// FIX .ENV ENABLE PROCESS 
