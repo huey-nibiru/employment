@@ -117,30 +117,30 @@
 }
 
 @media (min-width: 550px) and (max-width: 825px) {
-	.honeycomb-cell:nth-child(4n) {
+	.honeycomb-cell:nth-child(3n) {
 		margin-right: calc(50% - 80px);
 		margin-left: calc(50% - 80px);
 	}
 
-	.honeycomb-cell:nth-child(4n + 1),
-	.honeycomb-cell:nth-child(4n + 2),
-	.honeycomb-cell:nth-child(4n + 3) {
-		margin-right: 0; /* Reset margin for 3 cells */
+	.honeycomb_Hidden:nth-child(3n + 5) {
+		display: block;
 	}
 }
 
 @media (min-width: 825px) and (max-width: 1100px) {
-	.honeycomb-cell:nth-child(4n) {
+	.honeycomb-cell:nth-child(5n + 4) {
 		margin-left: calc(50% - 176px);
 	}
 
-	.honeycomb-cell:nth-child(4n + 1),
-	.honeycomb-cell:nth-child(4n + 2),
-	.honeycomb-cell:nth-child(4n + 3) {
-		margin-right: 0; /* Reset margin for 3 cells */
+	.honeycomb-cell:nth-child(5n + 5) {
+		margin-right: calc(50% - 176px);
+	}
+
+	.honeycomb_Hidden:nth-child(5n),
+	.honeycomb_Hidden:nth-child(5n + 3) {
+		display: block;
 	}
 }
-
 @media (min-width: 1100px) {
 	.honeycomb-cell:nth-child(7n + 5) {
 		margin-left: calc(50% - 256px);
