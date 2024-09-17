@@ -1,16 +1,48 @@
+import "./Login.css";
+import { supabase } from "../../client";
 import xLogo from "../../assets/x.gif";
 import Ticker from "../../components/Ticker/Ticker";
 import Navbar from "../../components/Navbar/Navbar";
-import "./Login.css";
-import TwitterAuth from "../../components/Twitter/TwitterAuth";
 import { useState, useRef } from "react"; // Import useState and useRef
+import TwitterAuth from "../../components/Twitter/TwitterAuth";
 
-const Login = () => {
+const Login = ({
+	onSubmit,
+}: {
+	onSubmit: (data: {
+		email?: string;
+		username: string;
+		password: string;
+	}) => void;
+}) => {
 	const [isLogin, setIsLogin] = useState(true); // State to toggle between login and signup
 	const emailRef = useRef<HTMLInputElement>(null); // Create a ref for email input
-
+	const usernameRef = useRef<HTMLInputElement>(null); // Create a ref for username input
+	const passwordRef = useRef<HTMLInputElement>(null); // Create a ref for password input
 	const toggleLoginSignup = () => {
 		setIsLogin(!isLogin); // Toggle state
+	};
+	const handleSubmit = async () => {
+		// Make handleSubmit async
+		const { data, error } = await supabase.auth.signUp({
+			email: emailRef.current?.value || "", // Use empty string if email is undefined
+			password: passwordRef.current?.value || "", // Use empty string if email is undefined
+		});
+		// Use data if needed, or remove the variable if not used
+		if (data) {
+			console.log("Sign up successful:", data); // Log data for confirmation
+		}
+		// Handle error if needed
+		if (error) {
+			console.error(error);
+			return; // Exit if there's an error
+		}
+		// Call the onSubmit function with the collected data
+		onSubmit({
+			email: emailRef.current ? emailRef.current.value : undefined,
+			username: usernameRef.current?.value || "", // Ensure username is passed correctly
+			password: passwordRef.current ? passwordRef.current.value : "", // Ensure password is passed correctly
+		});
 	};
 
 	return (
@@ -55,14 +87,7 @@ const Login = () => {
 				<input type="password" placeholder="Password" /> {/* Password field */}
 				<button
 					className="login-signup-button"
-					onClick={() => {
-						const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for email validation
-						if (emailRef.current && !emailRegex.test(emailRef.current.value)) {
-							// Check if emailRef.current is not null
-							// Handle invalid email
-							alert("Invalid email format");
-						}
-					}}
+					onClick={handleSubmit} // Use handleSubmit instead
 				>
 					{isLogin ? "Login" : "Sign Up"}
 				</button>
