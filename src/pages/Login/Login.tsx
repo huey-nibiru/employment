@@ -1,5 +1,5 @@
 import "./Login.css";
-import { supabase } from "../../client";
+//import { supabase } from "../../client"; // MUST BE FIXED
 import xLogo from "../../assets/x.gif";
 import Ticker from "../../components/Ticker/Ticker";
 import Navbar from "../../components/Navbar/Navbar";
