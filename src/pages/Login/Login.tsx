@@ -1,48 +1,48 @@
 import "./Login.css";
-//import { supabase } from "../../client"; // MUST BE FIXED
+import { supabase } from "../../client"; // MUST BE FIXED
 import xLogo from "../../assets/x.gif";
 import Ticker from "../../components/Ticker/Ticker";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useRef } from "react"; // Import useState and useRef
 import TwitterAuth from "../../components/Twitter/TwitterAuth";
 
-const Login = ({
-	onSubmit,
-}: {
-	onSubmit: (data: {
-		email?: string;
-		username: string;
-		password: string;
-	}) => void;
-}) => {
+const Login = ({}) => {
 	const [isLogin, setIsLogin] = useState(true); // State to toggle between login and signup
 	const emailRef = useRef<HTMLInputElement>(null); // Create a ref for email input
 	const usernameRef = useRef<HTMLInputElement>(null); // Create a ref for username input
 	const passwordRef = useRef<HTMLInputElement>(null); // Create a ref for password input
+
 	const toggleLoginSignup = () => {
 		setIsLogin(!isLogin); // Toggle state
 	};
+
 	const handleSubmit = async () => {
-		// Make handleSubmit async
+		alert("Email:" + emailRef.current?.value); // Access the value of email input
+		alert("Username:" + usernameRef.current?.value); // Access the value of username input
+		alert("Password:" + passwordRef.current?.value); // Access the value of password input
 		const { data, error } = await supabase.auth.signUp({
-			email: emailRef.current?.value || "", // Use empty string if email is undefined
-			password: passwordRef.current?.value || "", // Use empty string if email is undefined
+			email: emailRef.current?.value || "", // Use the email input value or default to an empty string
+			password: passwordRef.current?.value || "", // Use the password input value or default to an empty string
 		});
-		// Use data if needed, or remove the variable if not used
-		if (data) {
-			console.log("Sign up successful:", data); // Log data for confirmation
-		}
-		// Handle error if needed
 		if (error) {
-			console.error(error);
-			return; // Exit if there's an error
+			alert(error.message); // Handle error by displaying the error message
+		} else {
+			alert("Please confirm account creation in email."); // Handle success case
+			const { data: userData, error: userError } = await supabase
+				.from("user")
+				.insert([
+					{
+						email: emailRef.current?.value,
+						password_hash: passwordRef.current?.value,
+					},
+				]) // Use actual values
+				.select();
+			if (userError) {
+				alert(userError.message); // Handle error for user insertion
+			} else {
+				alert("Rows Updated");
+			}
 		}
-		// Call the onSubmit function with the collected data
-		onSubmit({
-			email: emailRef.current ? emailRef.current.value : undefined,
-			username: usernameRef.current?.value || "", // Ensure username is passed correctly
-			password: passwordRef.current ? passwordRef.current.value : "", // Ensure password is passed correctly
-		});
 	};
 
 	return (
@@ -74,21 +74,10 @@ const Login = ({
 			</div>
 
 			<div className="credentials">
-				{/* New container for credentials */}
-				{!isLogin && (
-					<input
-						type="email"
-						placeholder="Email"
-						ref={emailRef} // Reference for email input
-					/>
-				)}
-				{/* Email field for signup */}
-				<input type="text" placeholder="Username" /> {/* Username field */}
-				<input type="password" placeholder="Password" /> {/* Password field */}
-				<button
-					className="login-signup-button"
-					onClick={handleSubmit} // Use handleSubmit instead
-				>
+				{!isLogin && <input type="email" placeholder="Email" ref={emailRef} />}
+				<input type="text" placeholder="Username" ref={usernameRef} />{" "}
+				<input type="password" placeholder="Password" ref={passwordRef} />{" "}
+				<button className="login-signup-button" onClick={handleSubmit}>
 					{isLogin ? "Login" : "Sign Up"}
 				</button>
 			</div>
