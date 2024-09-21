@@ -17,9 +17,6 @@ const Login = ({}) => {
 	};
 
 	const handleSubmit = async () => {
-		alert("Email:" + emailRef.current?.value); // Access the value of email input
-		alert("Username:" + usernameRef.current?.value); // Access the value of username input
-		alert("Password:" + passwordRef.current?.value); // Access the value of password input
 		const { data, error } = await supabase.auth.signUp({
 			email: emailRef.current?.value || "", // Use the email input value or default to an empty string
 			password: passwordRef.current?.value || "", // Use the password input value or default to an empty string
@@ -34,6 +31,7 @@ const Login = ({}) => {
 					{
 						email: emailRef.current?.value,
 						password_hash: passwordRef.current?.value,
+						username: usernameRef.current?.value,
 					},
 				]) // Use actual values
 				.select();
