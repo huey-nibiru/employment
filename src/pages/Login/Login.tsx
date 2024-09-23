@@ -37,6 +37,7 @@ const Login = ({}) => {
 				{
 					email: u_email,
 					password_hash: passwordRef.current?.value,
+					username: usernameRef.current?.value,
 				},
 			]);
 
