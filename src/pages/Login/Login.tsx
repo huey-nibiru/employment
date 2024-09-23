@@ -38,6 +38,7 @@ const Login = ({}) => {
 			const { data, error } = await supabase.from("user").insert([
 				{
 					email: u_email,
+					password_hash: passwordRef.current?.value,
 				},
 			]);
 
