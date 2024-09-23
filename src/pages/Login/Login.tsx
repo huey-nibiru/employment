@@ -27,7 +27,7 @@ const Login = ({}) => {
 			alert(error.message);
 			return; // Exit if there's an error
 		} else {
-			alert("Please confirm account creation in email."); // Handle success case
+			console.log("Confirm account creation in email."); // Handle success case
 		}
 
 		// Add user to the custom table after verification
@@ -44,7 +44,7 @@ const Login = ({}) => {
 			if (error) {
 				console.error("Error adding user to table:", error.message);
 			} else {
-				alert("User added successfully!"); // {{ edit_1 }} - Alert user after adding
+				//alert("User added successfully!"); // {{ edit_1 }} - Alert user after adding
 				console.log("User added successfully:", data);
 			}
 		};
@@ -55,12 +55,14 @@ const Login = ({}) => {
 			const user = data?.user;
 			// Handle any errors fetching the user
 			if (error) {
+				alert("Error fetching user:"); // {{ edit_1 }} - Added detailed error logging
 				console.error("Error fetching user:", error.message, error); // {{ edit_1 }} - Added detailed error logging
 			}
 
 			// Extract the user object from the response
 
 			if (!user) {
+				alert("User does not exist.");
 				console.error("User does not exist."); // {{ edit_1 }} - Added check for user existence
 			}
 			console.log(user);
