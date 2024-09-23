@@ -1,10 +1,9 @@
 import "./Explore.css";
-import agartha from "../../assets/agartha.jpg";
-import aLogo from "../../assets/aLogo.jpg";
+
 import HoneyCombProp from "../../components/Honeycomb/Honeycomb";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import Listview from "../../components/Listview/Listview"; // Import ListView component
 //import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
 
