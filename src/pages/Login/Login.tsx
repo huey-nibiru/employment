@@ -33,11 +33,13 @@ const Login = ({}) => {
 		}
 
 		// Add user to the custom table after verification
-		const addUserToTable = async (u_id: BigInt, u_email: string | null) => {
+		const addUserToTable = async (u_email: string | null) => {
 			// {{ edit_1 }} - Fixed function declaration
-			const { data, error } = await supabase
-				.from("user")
-				.insert([{ user_id: u_id, email: u_email }]);
+			const { data, error } = await supabase.from("user").insert([
+				{
+					email: u_email,
+				},
+			]);
 
 			if (error) {
 				console.error("Error adding user to table:", error.message);
@@ -50,24 +52,22 @@ const Login = ({}) => {
 		// Optional polling for email verification
 		const checkEmailVerified = async () => {
 			const { data, error } = await supabase.auth.getUser();
-
+			const user = data?.user;
 			// Handle any errors fetching the user
 			if (error) {
 				console.error("Error fetching user:", error.message, error); // {{ edit_1 }} - Added detailed error logging
-				return;
 			}
 
 			// Extract the user object from the response
-			const user = data?.user;
 
 			if (!user) {
 				console.error("User does not exist."); // {{ edit_1 }} - Added check for user existence
-				return; // Exit if user does not exist
 			}
 
-			if (user.email_confirmed_at) {
+			if (user && user.email_confirmed_at) {
+				// {{ edit_1 }} - Added null check for user
 				console.log("Email verified. Adding user to the database.");
-				await addUserToTable(BigInt(user.id), user.email ?? null); // {{ edit_2 }} - Convert user.id to BigInt
+				await addUserToTable(user.email ?? null); // {{ edit_2 }} - Convert user.id to BigInt
 			} else {
 				console.log("Email not verified yet. Retrying in 5 seconds...");
 				setTimeout(checkEmailVerified, 5000);
