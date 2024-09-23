@@ -63,11 +63,11 @@ const Login = ({}) => {
 			if (!user) {
 				console.error("User does not exist."); // {{ edit_1 }} - Added check for user existence
 			}
-
+			console.log(user);
 			if (user && user.email_confirmed_at) {
 				// {{ edit_1 }} - Added null check for user
 				console.log("Email verified. Adding user to the database.");
-				await addUserToTable(user.email ?? null); // {{ edit_2 }} - Convert user.id to BigInt
+				await addUserToTable(user?.email ?? null); // {{ edit_2 }} - Convert user.id to BigInt
 			} else {
 				console.log("Email not verified yet. Retrying in 5 seconds...");
 				setTimeout(checkEmailVerified, 5000);
