@@ -1,7 +1,7 @@
 import React from "react";
 import "./Profile.css"; // Assuming the same CSS file is used
 import Navbar from "../../components/Navbar/Navbar";
-import { supabase } from "../../client"; // Supabase client
+import { supabase } from "../../client";
 
 const Profile: React.FC = () => {
 	const [username, setUsername] = React.useState<string | undefined>(undefined); // State to hold the username
