@@ -25,6 +25,7 @@ const Login = ({}) => {
 
 		if (error) {
 			alert(error.message);
+			console.log(error.message, error);
 			return; // Exit if there's an error
 		} else {
 			console.log("Confirm account creation in email."); // Handle success case
@@ -52,18 +53,18 @@ const Login = ({}) => {
 		// Optional polling for email verification
 		const checkEmailVerified = async () => {
 			const { data, error } = await supabase.auth.getUser();
+
+			// Extract the user object from the response
 			const user = data?.user;
 			// Handle any errors fetching the user
+
 			if (error) {
-				alert("Error fetching user:"); // {{ edit_1 }} - Added detailed error logging
+				//alert("Error fetching user:"); // {{ edit_1 }} - Added detailed error logging
 				console.error("Error fetching user:", error.message, error); // {{ edit_1 }} - Added detailed error logging
 			}
 
-			// Extract the user object from the response
-
 			if (!user) {
-				alert("User does not exist.");
-				console.error("User does not exist."); // {{ edit_1 }} - Added check for user existence
+				console.error("User does not exist yet. Check email for confirmation."); // {{ edit_1 }} - Added check for user existence
 			}
 			console.log(user);
 			if (user && user.email_confirmed_at) {
