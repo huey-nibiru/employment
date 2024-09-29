@@ -1,0 +1,23 @@
+.welcomeContainer {
+	display: flex;
+	flex-direction: column; /* Stack items vertically */
+	margin-top: 230px; /* Maintain the top margin */
+}
+
+.middleComponents {
+	display: flex;
+	flex-direction: column; /* Stack middle components */
+	gap: 20px; /* Space between components */
+	align-items: center; /* Center middle components */
+	margin-top: 50px;
+}
+
+/* Add this CSS rule to change the hover color of the link */
+a:hover {
+	color: blue; /* Change link color to blue on hover */
+}
+
+/* Add this CSS rule to center the text in the welcome container */
+.welcome-container {
+	text-align: center; /* Center the text */
+}
