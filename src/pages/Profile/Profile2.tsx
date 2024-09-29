@@ -27,7 +27,7 @@ const Profile: React.FC = () => {
 	return (
 		<div className="profile-container">
 			<Navbar />
-			<h1>WELCOME {username}</h1>
+			<h1>WELCOME TO EMPLOYMENT {username}</h1>
 		</div>
 	);
 };
