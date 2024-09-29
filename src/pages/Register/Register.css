@@ -12,7 +12,7 @@ body {
 }
 
 /* Styles for the container */
-.login-container {
+.Register-container {
 	text-align: center; /* Center-align text within the container */
 	padding: 50px; /* Add padding around the container */
 	border-radius: 8px; /* Round corners of the container */
@@ -51,9 +51,8 @@ body {
 	padding: 10px; /* Add padding for larger input area */
 	font-size: 16px; /* Increase font size for better readability */
 }
-.login-signup-toggle {
+.Register-signup-toggle {
 	flex-direction: column;
-	
 }
 .toggle {
 	position: relative;
@@ -103,15 +102,14 @@ input:checked + .slider:before {
 	transform: translateX(26px);
 }
 
-.login-signup-toggle {
+.Register-signup-toggle {
 	display: flex; /* Use flexbox for centering */
 	justify-content: center; /* Center horizontally */
 	align-items: center; /* Center vertically */
 	margin: 20px 0; /* Optional: add some margin */
 }
 
-
-.login-signup-button {
+.Register-signup-button {
 	background-color: #1da1f2;
 	color: white;
 	border: none;

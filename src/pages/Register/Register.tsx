@@ -1,4 +1,4 @@
-import "./Login.css";
+import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
 import xLogo from "../../assets/x.gif";
 import Ticker from "../../components/Ticker/Ticker";
@@ -6,14 +6,14 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useState, useRef } from "react"; // Import useState and useRef
 import TwitterAuth from "../../components/Twitter/TwitterAuth";
 
-const Login = ({}) => {
-	const [isLogin, setIsLogin] = useState(true); // State to toggle between login and signup
+const Register = ({}) => {
+	const [isRegister, setIsRegister] = useState(true); // State to toggle between Register and signup
 	const emailRef = useRef<HTMLInputElement>(null); // Create a ref for email input
 	const usernameRef = useRef<HTMLInputElement>(null); // Create a ref for username input
 	const passwordRef = useRef<HTMLInputElement>(null); // Create a ref for password input
 
-	const toggleLoginSignup = () => {
-		setIsLogin(!isLogin); // Toggle state
+	const toggleRegisterSignup = () => {
+		setIsRegister(!isRegister); // Toggle state
 	};
 
 	// Sign up the user
@@ -83,24 +83,24 @@ const Login = ({}) => {
 		<div>
 			<Navbar />
 			<Ticker />
-			<div className="login-container">
+			<div className="Register-container">
 				<h1>Employment</h1>
 				<div className="x-container">
 					<img src={xLogo} alt="X Logo" className="x-gif" />{" "}
 				</div>
 			</div>
 
-			<div className="login-signup-toggle">
+			<div className="Register-signup-toggle">
 				{/* Display text based on state */}
 				<span style={{ marginBottom: "10px" }}>
-					{isLogin ? "Login" : "Sign Up"}
+					{isRegister ? "Register" : "Sign Up"}
 				</span>{" "}
 				<label className="toggle">
 					{/* Moved span above the slider */}
 					<input
 						type="checkbox"
-						checked={!isLogin}
-						onChange={toggleLoginSignup} // Update state on change
+						checked={!isRegister}
+						onChange={toggleRegisterSignup} // Update state on change
 					/>{" "}
 					<span className="slider"></span>
 				</label>
@@ -108,11 +108,11 @@ const Login = ({}) => {
 			</div>
 
 			<div className="credentials">
-				{!isLogin && <input type="email" placeholder="Email" ref={emailRef} />}
+				{!isRegister && <input type="email" placeholder="Email" ref={emailRef} />}
 				<input type="text" placeholder="Username" ref={usernameRef} />{" "}
 				<input type="password" placeholder="Password" ref={passwordRef} />{" "}
-				<button className="login-signup-button" onClick={handleSubmit}>
-					{isLogin ? "Login" : "Sign Up"}
+				<button className="Register-signup-button" onClick={handleSubmit}>
+					{isRegister ? "Register" : "Sign Up"}
 				</button>
 			</div>
 
@@ -123,4 +123,4 @@ const Login = ({}) => {
 	);
 };
 
-export default Login;
+export default Register;

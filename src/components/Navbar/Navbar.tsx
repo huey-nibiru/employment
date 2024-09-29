@@ -27,12 +27,23 @@ const Navbar: React.FC = () => {
 					<Link to="/explore" className="navbar-link">
 						Explore
 					</Link>
-					<Link to="/profile" className="navbar-link">
-						Profile
-					</Link>
-					<Link to="/login" className="navbar-link">
-						Login
-					</Link>
+					{isConnected ? (
+						<>
+							<Link to="/profile" className="navbar-link">
+								Profile
+							</Link>
+							<button
+								onClick={disconnectWallet}
+								className="navbar-link navbar-button logoff-button"
+							>
+								Logoff
+							</button>
+						</>
+					) : (
+						<Link to="/Register" className="navbar-link">
+							Register
+						</Link>
+					)}
 				</div>
 				<div className="navbar-center">
 					<span className="navbar-title">EMPLOYMENT</span>
