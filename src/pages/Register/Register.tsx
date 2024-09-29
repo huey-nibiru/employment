@@ -93,7 +93,7 @@ const Register = ({}) => {
 			<div className="Register-signup-toggle">
 				{/* Display text based on state */}
 				<span style={{ marginBottom: "10px" }}>
-					{isRegister ? "Register" : "Sign Up"}
+					{isRegister ? "Login" : "Register"}
 				</span>{" "}
 				<label className="toggle">
 					{/* Moved span above the slider */}
@@ -108,11 +108,13 @@ const Register = ({}) => {
 			</div>
 
 			<div className="credentials">
-				{!isRegister && <input type="email" placeholder="Email" ref={emailRef} />}
+				{!isRegister && (
+					<input type="email" placeholder="Email" ref={emailRef} />
+				)}
 				<input type="text" placeholder="Username" ref={usernameRef} />{" "}
 				<input type="password" placeholder="Password" ref={passwordRef} />{" "}
 				<button className="Register-signup-button" onClick={handleSubmit}>
-					{isRegister ? "Register" : "Sign Up"}
+					{isRegister ? "Login" : "Register"}
 				</button>
 			</div>
 

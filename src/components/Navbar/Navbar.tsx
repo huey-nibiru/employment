@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
 						</>
 					) : (
 						<Link to="/Register" className="navbar-link">
-							Register
+							Register/Login
 						</Link>
 					)}
 				</div>
