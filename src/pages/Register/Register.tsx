@@ -2,7 +2,6 @@ import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
 import xLogo from "../../assets/x.gif";
 import Ticker from "../../components/Ticker/Ticker";
-import Navbar from "../../components/Navbar/Navbar";
 import { useState, useRef } from "react"; // Import useState and useRef
 import TwitterAuth from "../../components/Twitter/TwitterAuth";
 
@@ -81,7 +80,6 @@ const Register = ({}) => {
 	};
 	return (
 		<div>
-			<Navbar />
 			<Ticker />
 			<div className="Register-container">
 				<h1>Employment</h1>
