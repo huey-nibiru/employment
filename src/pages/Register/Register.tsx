@@ -2,82 +2,109 @@ import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
 import xLogo from "../../assets/x.gif";
 import Ticker from "../../components/Ticker/Ticker";
-import { useState, useRef } from "react"; // Import useState and useRef
+import { useState, useRef, useEffect } from "react"; // Import useState and useRef
 import TwitterAuth from "../../components/Twitter/TwitterAuth";
+import { useNavigate } from "react-router-dom";
+import { FaXTwitter } from "react-icons/fa6";
 
-const Register = ({}) => {
-	const [isRegister, setIsRegister] = useState(true); // State to toggle between Register and signup
-	const emailRef = useRef<HTMLInputElement>(null); // Create a ref for email input
-	const usernameRef = useRef<HTMLInputElement>(null); // Create a ref for username input
-	const passwordRef = useRef<HTMLInputElement>(null); // Create a ref for password input
 
-	const toggleRegisterSignup = () => {
-		setIsRegister(!isRegister); // Toggle state
-	};
+const Register = () => {
+	const navigate = useNavigate()
+	const [modalState, setModalState] = useState("SignIn");
+	const [formData, setFormData] = useState({
+		email: "",
+		password: "" 
+	});
 
-	// Sign up the user
-	const handleSubmit = async () => {
-		const { error } = await supabase.auth.signUp({
-			email: emailRef.current?.value || "", // Use the email input value or default to an empty string
-			password: passwordRef.current?.value || "", // Use the password input value or default to an empty string
+	const stateUpdater = (field, value) => {
+		setFormData((prev) => ({
+			...prev,
+			[field]: value
+		}))
+	}
+
+	const handleSignIn = async (e) => {
+		e.preventDefault();
+
+		try {
+			const { error } = await supabase.auth.signInWithPassword({
+				email: formData.email,
+				password: formData.password,
+			});
+	  
+			if (error) {
+			  throw new Error(error);
+			}
+		  } catch (error) {
+			console.error(error.details);
+		  }
+		  
+		  // Sign in successful
+		  // Show new modal, redirect or w/e (:
+		  navigate("/");
+	}
+
+	const handleSignUp = async (e) => {
+		e.preventDefault();
+
+		try {
+		if (!formData.email || !formData.password) 	return;
+
+		const { data, error } = await supabase.auth.signUp({
+			email: formData.email,
+			password: formData.password,
 		});
 
 		if (error) {
-			alert(error.message);
-			console.log(error.message, error);
-			return; // Exit if there's an error
-		} else {
-			console.log("Confirm account creation in email."); // Handle success case
+			const message = error.message;
+
+			if(message.includes("@#$%^&*()")) {
+				alert('Password should contain at least one character of each: abcdefghijklmnopqrstuvwxyz, ABCDEFGHIJKLMNOPQRSTUVWXYZ, 0123456789, !@#$%^&*()_+-=[]{};\'\:"|<>?,./`~.');
+				return;
+			}
+
+			switch (message) {
+			  case "To signup, please provide your email":
+				alert("To signup, please provide your email");
+				return;
+			  case "Unable to validate email address: invalid format":
+				alert("Invalid email");
+				return;
+			  case "Password should be at least 6 characters.":
+				alert("Password should be at least 6 characters");
+				return;
+			  case "Signup requires a valid password":
+				alert("Signup requires a valid password");
+				return;
+			  default:
+				alert("An unexpected error occurred. Please try again.");
+				return;
+			}
+		  }
+
+		  // Sign up successful
+		  // Show new modal, redirect or w/e (:
+		  navigate("/");
+		} catch (err) {
+			console.error(err)
 		}
-
-		// Add user to the custom table after verification
-		const addUserToTable = async (u_email: string | null) => {
-			// {{ edit_1 }} - Fixed function declaration
-			const { data, error } = await supabase.from("user").insert([
-				{
-					email: u_email,
-					password_hash: passwordRef.current?.value,
-					username: usernameRef.current?.value,
-				},
-			]);
-
-			if (error) {
-				console.error("Error adding user to table:", error.message);
-			} else {
-				//alert("User added successfully!"); // {{ edit_1 }} - Alert user after adding
-				console.log("User added successfully:", data);
-			}
-		};
-
-		// Optional polling for email verification
-		const checkEmailVerified = async () => {
-			const { data, error } = await supabase.auth.getUser();
-
-			// Extract the user object from the response
-			const user = data?.user;
-			// Handle any errors fetching the user
-
-			if (error) {
-				//alert("Error fetching user:"); // {{ edit_1 }} - Added detailed error logging
-				console.error("Error fetching user:", error.message, error); // {{ edit_1 }} - Added detailed error logging
-			}
-
-			if (!user) {
-				console.error("User does not exist yet. Check email for confirmation."); // {{ edit_1 }} - Added check for user existence
-			}
-			console.log(user);
-			if (user && user.email_confirmed_at) {
-				// {{ edit_1 }} - Added null check for user
-				console.log("Email verified. Adding user to the database.");
-				await addUserToTable(user?.email ?? null); // {{ edit_2 }} - Convert user.id to BigInt
-			} else {
-				console.log("Email not verified yet. Retrying in 5 seconds...");
-				setTimeout(checkEmailVerified, 5000);
-			}
-		};
-
-		checkEmailVerified(); // Start checking for email verification
 	};
+
+
+	const handleTwitterSignIn = async () => {
+
+		try {
+			const { data, error } = await supabase.auth.signInWithOAuth({
+				provider: 'twitter',
+			});
+
+
+		} catch (err) {
+			console.error(err)
+		}
+	}
+
+
 	return (
 		<div>
 			<Ticker />
@@ -87,38 +114,25 @@ const Register = ({}) => {
 					<img src={xLogo} alt="X Logo" className="x-gif" />{" "}
 				</div>
 			</div>
+			<form className="auth-form">
+				<h2>{modalState === "SignIn" ? "Sign In" : "Create Account"}</h2>
+				<fieldset>
+					<input type="text" placeholder="Enter your email address" onInput={(e) => stateUpdater("email", e.target.value)}/>
+				</fieldset>
+				<fieldset>
+					<input type="password" placeholder="Enter your password" onInput={(e) => stateUpdater("password", e.target.value)}/>
+				</fieldset>
+				<span className="toggle-span">{modalState === "SignIn" ? "No account yet?" : "Have an account?"}<span className="sign-span" onClick={() => setModalState((prev) => prev === "SignIn" ? "SignUp" : "SignIn")}>{modalState === "SignIn" ? "Sign Up" : "Sign In"}</span></span>
+			{modalState === "SignIn" &&
+			<button className="form-cta" onClick={handleSignIn}>Continue</button>
+			}
+			{modalState === "SignUp" &&
+			<button className="form-cta" onClick={handleSignUp}>Create Account</button>
+			}
 
-			<div className="Register-signup-toggle">
-				{/* Display text based on state */}
-				<span style={{ marginBottom: "10px" }}>
-					{isRegister ? "Login" : "Register"}
-				</span>{" "}
-				<label className="toggle">
-					{/* Moved span above the slider */}
-					<input
-						type="checkbox"
-						checked={!isRegister}
-						onChange={toggleRegisterSignup} // Update state on change
-					/>{" "}
-					<span className="slider"></span>
-				</label>
-				{/* Display text based on state */}
-			</div>
+			<FaXTwitter className="twitter-cta" onClick={handleTwitterSignIn}/>
+			</form>
 
-			<div className="credentials">
-				{!isRegister && (
-					<input type="email" placeholder="Email" ref={emailRef} />
-				)}
-				<input type="text" placeholder="Username" ref={usernameRef} />{" "}
-				<input type="password" placeholder="Password" ref={passwordRef} />{" "}
-				<button className="Register-signup-button" onClick={handleSubmit}>
-					{isRegister ? "Login" : "Register"}
-				</button>
-			</div>
-
-			<div className="twitter-auth-container">
-				<TwitterAuth />
-			</div>
 		</div>
 	);
 };

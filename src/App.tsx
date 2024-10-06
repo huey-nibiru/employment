@@ -5,9 +5,11 @@ import Explore from "./pages/Explore/Explore";
 import Profile from "./pages/Profile/Profile2";
 import Welcome from "./components/Welcome/Welcome";
 import Navbar from "./components/Navbar/Navbar";
+import AuthProvider from "../src/utils/AuthProvider";
 
 const App = () => {
 	return (
+		<AuthProvider>
 		<Router>
 			<Navbar/>
 			<Routes>
@@ -18,6 +20,7 @@ const App = () => {
 				<Route path="/welcome" element={<Welcome />} />
 			</Routes>
 		</Router>
+		</AuthProvider>
 	);
 };
 
