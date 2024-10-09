@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { AuthContext } from "../../utils/AuthProvider"
-import {supabase} from "../../client" 
+import { AuthContext } from "../../utils/AuthProvider";
+import { supabase } from "../../client";
 
 const Navbar: React.FC = () => {
 	const { isAuthenticated } = useContext(AuthContext);
@@ -20,18 +20,17 @@ const Navbar: React.FC = () => {
 		setWalletAddress("");
 	};
 
-
 	const handleLogout = async () => {
 		try {
-		  const { error } = await supabase.auth.signOut();
-		  if (error) {
-			throw new Error(error);
-		  }
-		  window.location.reload();
+			const { error } = await supabase.auth.signOut();
+			if (error) {
+				throw new Error(error);
+			}
+			window.location.reload();
 		} catch (err) {
-		  console.error(err);
+			console.error(err);
 		}
-	  };
+	};
 
 	return (
 		<nav className="navbar">
@@ -65,7 +64,11 @@ const Navbar: React.FC = () => {
 					<span className="navbar-title">EMPLOYMENT</span>
 				</div>
 				<div className="navbar-right">
-					{isAuthenticated ? <button className="sign-out" onClick={handleLogout}>Sign Out</button> : null}
+					{isAuthenticated ? (
+						<button className="sign-out" onClick={handleLogout}>
+							Sign Out
+						</button>
+					) : null}
 					{isConnected ? (
 						<button
 							onClick={disconnectWallet}
