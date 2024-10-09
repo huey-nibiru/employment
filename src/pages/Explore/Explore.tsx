@@ -1,7 +1,6 @@
 import "./Explore.css";
 
 import HoneyCombProp from "../../components/Honeycomb/Honeycomb";
-import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
 
 import Listview from "../../components/Listview/Listview"; // Import ListView component
@@ -101,7 +100,6 @@ const Explore = () => {
 
 	return (
 		<div>
-			<Navbar />
 			<div className="button-container">
 				{" "}
 				{/* Added a container for buttons */}

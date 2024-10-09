@@ -1,6 +1,5 @@
 import React from "react";
 import "./Profile.css"; // Assuming the same CSS file is used
-import Navbar from "../../components/Navbar/Navbar";
 import { supabase } from "../../client";
 
 const Profile: React.FC = () => {
@@ -26,7 +25,6 @@ const Profile: React.FC = () => {
 
 	return (
 		<div className="profile-container">
-			<Navbar />
 			<h1>WELCOME TO EMPLOYMENT {username}</h1>
 		</div>
 	);

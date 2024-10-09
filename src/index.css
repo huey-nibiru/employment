@@ -1,79 +1,80 @@
 /* Root styles */
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Set the default font family */
-	line-height: 1.5; /* Set the line height for better readability */
-	font-weight: 400; /* Set the default font weight */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Set the default font family */
+  line-height: 1.5; /* Set the line height for better readability */
+  font-weight: 400; /* Set the default font weight */
 
-	color-scheme: light dark; /* Specify the color schemes supported */
-	color: rgba(255, 255, 255, 0.87); /* Set the default text color */
-	background-color: #000000; /* Set the default background color */
+  color-scheme: light dark; /* Specify the color schemes supported */
+  color: rgba(255, 255, 255, 0.87); /* Set the default text color */
+  background-color: #000000; /* Set the default background color */
 
-	font-synthesis: none; /* Disable font synthesis */
-	text-rendering: optimizeLegibility; /* Optimize text rendering for legibility */
-	-webkit-font-smoothing: antialiased; /* Smooth text on WebKit browsers */
-	-moz-osx-font-smoothing: grayscale; /* Smooth text on macOS */
+  font-synthesis: none; /* Disable font synthesis */
+  text-rendering: optimizeLegibility; /* Optimize text rendering for legibility */
+  -webkit-font-smoothing: antialiased; /* Smooth text on WebKit browsers */
+  -moz-osx-font-smoothing: grayscale; /* Smooth text on macOS */
 }
 
 /* Styles for anchor tags */
 a {
-	font-weight: 500; /* Set the font weight for links */
-	color: #ffd700; /* Set the default color for links */
-	text-decoration: inherit; /* Inherit text decoration from parent */
+  font-weight: 500; /* Set the font weight for links */
+  color: #ffd700; /* Set the default color for links */
+  text-decoration: inherit; /* Inherit text decoration from parent */
 }
 
 a:hover {
-	color: #000000; /* Change link color on hover */
+  color: #000000; /* Change link color on hover */
 }
 
 /* Styles for the body */
 body {
-	margin: 0; /* Remove default margin */
-	display: flex; /* Use flexbox layout */
-	place-items: center; /* Center items in the flex container */
-	min-width: 320px; /* Set minimum width for the body */
-	min-height: 100vh; /* Set minimum height to cover the viewport */
-	background-color: #000000;
+  margin: 0; /* Remove default margin */
+  display: flex; /* Use flexbox layout */
+  place-items: center; /* Center items in the flex container */
+  min-width: 320px; /* Set minimum width for the body */
+  min-height: 100vh; /* Set minimum height to cover the viewport */
+  background-color: #000000;
 }
 
 /* Styles for buttons */
 button {
-	border-radius: 8px; /* Round the corners of buttons */
-	border: 1px solid transparent; /* Set initial border style */
-	padding: 0.6em 1.2em; /* Add padding to buttons */
-	font-size: 1em; /* Set the font size for buttons */
-	font-weight: 500; /* Set the font weight for buttons */
-	font-family: inherit; /* Inherit the font family */
-	background-color: #1a1a1a; /* Set the background color for buttons */
-	cursor: pointer; /* Change cursor to pointer on hover */
-	transition: border-color 0.25s; /* Smooth transition for border color */
+  border-radius: 8px; /* Round the corners of buttons */
+  border: 1px solid transparent; /* Set initial border style */
+  padding: 0.6em 1.2em; /* Add padding to buttons */
+  font-size: 1em; /* Set the font size for buttons */
+  font-weight: 500; /* Set the font weight for buttons */
+  font-family: inherit; /* Inherit the font family */
+  background-color: #1a1a1a; /* Set the background color for buttons */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: border-color 0.25s; /* Smooth transition for border color */
+  border: 3px solid transparent;
 }
 
 button:hover {
-	border-color: black; /* Change border color on hover */
-	border-width: 3px; /* Increase border thickness on hover */
+  border-color: black; /* Change border color on hover */
+  border-width: 3px; /* Increase border thickness on hover */
 }
 
 button:focus,
 button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color; /* Add focus outline for accessibility */
+  outline: 4px auto -webkit-focus-ring-color; /* Add focus outline for accessibility */
 }
 
 /* Media query for light color scheme */
 @media (prefers-color-scheme: light) {
-	:root {
-		color: #213547; /* Set text color for light mode */
-		background-color: #ffffff; /* Set background color for light mode */
-	}
+  :root {
+    color: #213547; /* Set text color for light mode */
+    background-color: #ffffff; /* Set background color for light mode */
+  }
 
-	a:hover {
-		color: #ffffff; /* Change link color on hover in light mode */
-	}
+  a:hover {
+    color: #ffffff; /* Change link color on hover in light mode */
+  }
 
-	button {
-		background-color: #f9f9f9; /* Set background color for buttons in light mode */
-	}
+  button {
+    background-color: #f9f9f9; /* Set background color for buttons in light mode */
+  }
 }
 h1 {
-	font-size: 3.2em; /* Set the font size for h1 headers */
-	line-height: 1.1; /* Set line height for h1 headers */
+  font-size: 3.2em; /* Set the font size for h1 headers */
+  line-height: 1.1; /* Set line height for h1 headers */
 }

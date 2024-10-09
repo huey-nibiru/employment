@@ -1,6 +1,5 @@
 import React from "react";
 import "./Welcome.css"; // Assuming the same CSS file is used
-import Navbar from "../../components/Navbar/Navbar";
 import { supabase } from "../../client";
 
 const Welcome: React.FC = () => {
@@ -26,7 +25,6 @@ const Welcome: React.FC = () => {
 
 	return (
 		<div className="welcome-container">
-			<Navbar />
 			<h1>WELCOME TO EMPLOYMENT {username}</h1>
 			<h2>
 				<a href="/register">Login</a>
