@@ -7,21 +7,20 @@ import TwitterAuth from "../../components/Twitter/TwitterAuth";
 import { useNavigate } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
 
-
 const Register = () => {
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	const [modalState, setModalState] = useState("SignIn");
 	const [formData, setFormData] = useState({
 		email: "",
-		password: "" 
+		password: "",
 	});
 
 	const stateUpdater = (field, value) => {
 		setFormData((prev) => ({
 			...prev,
-			[field]: value
-		}))
-	}
+			[field]: value,
+		}));
+	};
 
 	const handleSignIn = async (e) => {
 		e.preventDefault();
@@ -31,79 +30,76 @@ const Register = () => {
 				email: formData.email,
 				password: formData.password,
 			});
-	  
+
 			if (error) {
-			  throw new Error(error);
+				throw new Error(error);
 			}
-		  } catch (error) {
+		} catch (error) {
 			console.error(error.details);
-		  }
-		  
-		  // Sign in successful
-		  // Show new modal, redirect or w/e (:
-		  navigate("/");
-	}
+		}
+
+		// Sign in successful
+		// Show new modal, redirect or w/e (:
+		navigate("/");
+	};
 
 	const handleSignUp = async (e) => {
 		e.preventDefault();
 
 		try {
-		if (!formData.email || !formData.password) 	return;
+			if (!formData.email || !formData.password) return;
 
-		const { data, error } = await supabase.auth.signUp({
-			email: formData.email,
-			password: formData.password,
-		});
+			const { data, error } = await supabase.auth.signUp({
+				email: formData.email,
+				password: formData.password,
+			});
 
-		if (error) {
-			const message = error.message;
+			if (error) {
+				const message = error.message;
 
-			if(message.includes("@#$%^&*()")) {
-				alert('Password should contain at least one character of each: abcdefghijklmnopqrstuvwxyz, ABCDEFGHIJKLMNOPQRSTUVWXYZ, 0123456789, !@#$%^&*()_+-=[]{};\'\:"|<>?,./`~.');
-				return;
+				if (message.includes("@#$%^&*()")) {
+					alert(
+						"Password should contain at least one character of each: abcdefghijklmnopqrstuvwxyz, ABCDEFGHIJKLMNOPQRSTUVWXYZ, 0123456789, !@#$%^&*()_+-=[]{};':\"|<>?,./`~."
+					);
+					return;
+				}
+
+				switch (message) {
+					case "To signup, please provide your email":
+						alert("To signup, please provide your email");
+						return;
+					case "Unable to validate email address: invalid format":
+						alert("Invalid email");
+						return;
+					case "Password should be at least 6 characters.":
+						alert("Password should be at least 6 characters");
+						return;
+					case "Signup requires a valid password":
+						alert("Signup requires a valid password");
+						return;
+					default:
+						alert("An unexpected error occurred. Please try again.");
+						return;
+				}
 			}
 
-			switch (message) {
-			  case "To signup, please provide your email":
-				alert("To signup, please provide your email");
-				return;
-			  case "Unable to validate email address: invalid format":
-				alert("Invalid email");
-				return;
-			  case "Password should be at least 6 characters.":
-				alert("Password should be at least 6 characters");
-				return;
-			  case "Signup requires a valid password":
-				alert("Signup requires a valid password");
-				return;
-			  default:
-				alert("An unexpected error occurred. Please try again.");
-				return;
-			}
-		  }
-
-		  // Sign up successful
-		  // Show new modal, redirect or w/e (:
-		  navigate("/");
+			// Sign up successful
+			// Show new modal, redirect or w/e (:
+			navigate("/profile");
 		} catch (err) {
-			console.error(err)
+			console.error(err);
 		}
 	};
 
-
 	const handleTwitterSignIn = async () => {
-
 		try {
 			const { data, error } = await supabase.auth.signInWithOAuth({
-				provider: 'twitter',
+				provider: "twitter",
 			});
-
-
 		} catch (err) {
-			console.error(err)
+			console.error(err);
 		}
-	}
-
+	};
 
 	return (
 		<div>
@@ -117,22 +113,43 @@ const Register = () => {
 			<form className="auth-form">
 				<h2>{modalState === "SignIn" ? "Sign In" : "Create Account"}</h2>
 				<fieldset>
-					<input type="text" placeholder="Enter your email address" onInput={(e) => stateUpdater("email", e.target.value)}/>
+					<input
+						type="text"
+						placeholder="Enter your email address"
+						onInput={(e) => stateUpdater("email", e.target.value)}
+					/>
 				</fieldset>
 				<fieldset>
-					<input type="password" placeholder="Enter your password" onInput={(e) => stateUpdater("password", e.target.value)}/>
+					<input
+						type="password"
+						placeholder="Enter your password"
+						onInput={(e) => stateUpdater("password", e.target.value)}
+					/>
 				</fieldset>
-				<span className="toggle-span">{modalState === "SignIn" ? "No account yet?" : "Have an account?"}<span className="sign-span" onClick={() => setModalState((prev) => prev === "SignIn" ? "SignUp" : "SignIn")}>{modalState === "SignIn" ? "Sign Up" : "Sign In"}</span></span>
-			{modalState === "SignIn" &&
-			<button className="form-cta" onClick={handleSignIn}>Continue</button>
-			}
-			{modalState === "SignUp" &&
-			<button className="form-cta" onClick={handleSignUp}>Create Account</button>
-			}
+				<span className="toggle-span">
+					{modalState === "SignIn" ? "No account yet?" : "Have an account?"}
+					<span
+						className="sign-span"
+						onClick={() =>
+							setModalState((prev) => (prev === "SignIn" ? "SignUp" : "SignIn"))
+						}
+					>
+						{modalState === "SignIn" ? "Sign Up" : "Sign In"}
+					</span>
+				</span>
+				{modalState === "SignIn" && (
+					<button className="form-cta" onClick={handleSignIn}>
+						Continue
+					</button>
+				)}
+				{modalState === "SignUp" && (
+					<button className="form-cta" onClick={handleSignUp}>
+						Create Account
+					</button>
+				)}
 
-			<FaXTwitter className="twitter-cta" onClick={handleTwitterSignIn}/>
+				<FaXTwitter className="twitter-cta" onClick={handleTwitterSignIn} />
 			</form>
-
 		</div>
 	);
 };
