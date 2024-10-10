@@ -78,13 +78,27 @@ const Register = () => {
 						alert("Signup requires a valid password");
 						return;
 					default:
-						alert("An unexpected error occurred. Please try again.");
+						alert(error);
 						return;
 				}
 			}
 
 			// Sign up successful
-			// Show new modal, redirect or w/e (:
+			// add user to table
+			if (data.user) {
+				const { error: insertError } = await supabase
+					.from("user") // Assuming 'users' is the table name
+					.insert([
+						{ email: formData.email, password_hash: formData.password },
+					]);
+
+				if (insertError) {
+					console.error("Error inserting user data:", insertError);
+					return;
+				}
+			}
+
+			// redirect to profile
 			navigate("/profile");
 		} catch (err) {
 			console.error(err);
