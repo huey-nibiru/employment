@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from "react"; // Import useState and useR
 import TwitterAuth from "../../components/Twitter/TwitterAuth";
 import { useNavigate } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
+//import { updateAppState } from "path/to/updateAppState"; // FIX
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -98,7 +99,18 @@ const Register = () => {
 				}
 			}
 
-			// redirect to profile
+			/* redirect to profile 
+			supabase.auth.getSession().then(({ data: { session }, error }) => {
+				if (error) {
+					console.error("Error getting session:", error);
+					return;
+				}
+				if (session) {
+					console.log("Session is active:", session);
+					// Assuming there's a function to update the app state or a context to handle user session
+					updateAppState({ isLoggedIn: true, user: session.user });
+				}
+			}); */
 			navigate("/profile");
 		} catch (err) {
 			console.error(err);
