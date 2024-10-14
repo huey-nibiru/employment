@@ -27,21 +27,26 @@ const Register = () => {
 		e.preventDefault();
 
 		try {
-			const { error } = await supabase.auth.signInWithPassword({
+			if (!formData.email || !formData.password) return;
+
+			const { data, error } = await supabase.auth.signInWithPassword({
 				email: formData.email,
 				password: formData.password,
 			});
 
 			if (error) {
-				throw new Error(error);
+				const message = error.message;
+				// Handle error (e.g., show alert)
+				alert(message);
+				return; // Exit if there's an error
 			}
-		} catch (error) {
-			console.error(error.details);
-		}
 
-		// Sign in successful
-		// Show new modal, redirect or w/e (:
-		navigate("/");
+			// Sign in successful
+			navigate("/explore"); // Only navigate if sign in is successful
+		} catch (error) {
+			console.error(error);
+			alert(error);
+		}
 	};
 
 	const handleSignUp = async (e) => {
@@ -57,13 +62,6 @@ const Register = () => {
 
 			if (error) {
 				const message = error.message;
-
-				if (message.includes("@#$%^&*()")) {
-					alert(
-						"Password should contain at least one character of each: abcdefghijklmnopqrstuvwxyz, ABCDEFGHIJKLMNOPQRSTUVWXYZ, 0123456789, !@#$%^&*()_+-=[]{};':\"|<>?,./`~."
-					);
-					return;
-				}
 
 				switch (message) {
 					case "To signup, please provide your email":
@@ -84,7 +82,6 @@ const Register = () => {
 				}
 			}
 
-			// Sign up successful
 			// add user to table
 			if (data.user) {
 				const { error: insertError } = await supabase
@@ -98,22 +95,10 @@ const Register = () => {
 					return;
 				}
 			}
-
-			/* redirect to profile 
-			supabase.auth.getSession().then(({ data: { session }, error }) => {
-				if (error) {
-					console.error("Error getting session:", error);
-					return;
-				}
-				if (session) {
-					console.log("Session is active:", session);
-					// Assuming there's a function to update the app state or a context to handle user session
-					updateAppState({ isLoggedIn: true, user: session.user });
-				}
-			}); */
+			// Redirect to profile
 			navigate("/profile");
-		} catch (err) {
-			console.error(err);
+		} catch (error) {
+			console.error(error);
 		}
 	};
 
@@ -124,6 +109,7 @@ const Register = () => {
 			});
 		} catch (err) {
 			console.error(err);
+			alert(err);
 		}
 	};
 
