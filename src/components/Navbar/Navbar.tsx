@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
 		try {
 			const { error } = await supabase.auth.signOut();
 			if (error) {
-				throw new Error(error);
+				alert(error);
 			}
 			//window.location.reload();
 			navigate("/");
