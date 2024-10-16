@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProfileMain.css";
+import "./Main.css";
 
 // New ProfileMain component with glassmorphism
 const ProfileMain: React.FC = () => {
@@ -12,8 +12,8 @@ const ProfileMain: React.FC = () => {
 				<div className="skills-icons">
 					{/* Icons for key skills */}
 					<ul>
-							<li>🎨 Design</li>
-							<li>💻 Coding</li>
+						<li>🎨 Design</li>
+						<li>💻 Coding</li>
 					</ul>
 				</div>
 			</div>

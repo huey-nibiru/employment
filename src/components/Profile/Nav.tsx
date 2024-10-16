@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProfileNav.css";
+import "./Nav.css";
 
 const ProfileNav = () => {
 	const [activeTab, setActiveTab] = React.useState("overview");

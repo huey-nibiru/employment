@@ -5,7 +5,7 @@ import Explore from "./pages/Explore/Explore";
 import Profile from "./pages/Profile/Profile";
 import Welcome from "./components/Welcome/Welcome";
 import Navbar from "./components/Navbar/Navbar";
-import AuthProvider from "../src/utils/AuthProvider";
+import AuthProvider from "./utils/AuthProvider";
 
 const App = () => {
 	return (

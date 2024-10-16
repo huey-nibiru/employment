@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Profile.css";
 import Bio from "../../components/Bio/Bio";
-import ProfileNav from "../../components/ProfileNav/ProfileNav";
-import ProfileMain from "../../components/ProfileMain/ProfileMain";
+import ProfileNav from "../../components/Profile/Nav";
+import ProfileMain from "../../components/Profile/Main";
 import Achievements from "../../components/Achievements/Achievements";
 import { supabase } from "../../client"; // MUST BE FIXED
 
