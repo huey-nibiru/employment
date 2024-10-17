@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
 import "./Profile.css";
+import { supabase } from "../../client"; // MUST BE FIXED
+import { useEffect, useState } from "react";
 import Bio from "../../components/Bio/Bio";
+import Navbar from "../../components/Navbar/Navbar";
 import ProfileNav from "../../components/Profile/Nav";
 import ProfileMain from "../../components/Profile/Main";
 import Achievements from "../../components/Achievements/Achievements";
-import { supabase } from "../../client"; // MUST BE FIXED
 
 const Profile = () => {
 	const [user, setUser] = useState<User | null>(null); // Update the state type to allow User or null

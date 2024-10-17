@@ -6,6 +6,7 @@ import Profile from "./pages/Profile/Profile";
 import Welcome from "./components/Welcome/Welcome";
 import Navbar from "./components/Navbar/Navbar";
 import AuthProvider from "./utils/AuthProvider";
+import Settings from "./pages/Settings/Settings";
 
 const App = () => {
 	return (
@@ -18,6 +19,7 @@ const App = () => {
 					<Route path="/explore" element={<Explore />} />
 					<Route path="/profile" element={<Profile />} />
 					<Route path="/welcome" element={<Welcome />} />
+					<Route path="/settings" element={<Settings />} />
 				</Routes>
 			</Router>
 		</AuthProvider>
