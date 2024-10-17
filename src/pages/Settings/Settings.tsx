@@ -5,7 +5,7 @@ const Settings: React.FC = () => {
 	return (
 		<div>
 			<Navbar />
-			<h1>User Profile Settings</h1>
+			<h1 style={{ color: "white" }}>User Profile Settings</h1>
 		</div>
 	);
 };
