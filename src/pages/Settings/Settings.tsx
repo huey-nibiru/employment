@@ -1,8 +1,10 @@
 // src/pages/Settings/Settings.tsx
 import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
-
+import { supabase } from "../../client";
+import { useNavigate } from "react-router-dom";
 const Settings: React.FC = () => {
+	const navigate = useNavigate();
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState(""); // New state for confirm password
