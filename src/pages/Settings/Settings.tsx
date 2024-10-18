@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
 import { supabase } from "../../client";
 import { useNavigate } from "react-router-dom";
+
 const Settings: React.FC = () => {
 	const navigate = useNavigate();
 	const [username, setUsername] = useState("");
@@ -18,12 +19,27 @@ const Settings: React.FC = () => {
 		}
 	};
 
-	const handleUpdate = () => {
+	const handleUpdate = async () => {
 		if (password !== confirmPassword) {
 			alert("Passwords do not match!"); // Alert if passwords do not match
 			return;
 		}
-		// Logic to update username, password, and profile picture in Supabase
+
+		const updates: any = {};
+		if (username) updates.username = username; // Update username if not empty
+		if (password) updates.password = password; // Update password if not empty
+
+		// Logic to update username and password in Supabase
+		const { error } = await supabase
+			.from("user") // Assuming 'users' is the table name
+			.update(updates)
+			.eq("id", supabase.auth.user()?.id); // Update the current user's record
+
+		if (error) {
+			alert("Error updating profile: " + error.message);
+		} else {
+			alert("Profile updated successfully!");
+		}
 	};
 
 	return (
