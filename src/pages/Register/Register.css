@@ -12,22 +12,19 @@ body {
 }
 
 /* Styles for the container */
-.Register-container {
-  text-align: center; /* Center-align text within the container */
-  padding: 50px; /* Add padding around the container */
-  border-radius: 8px; /* Round corners of the container */
-  background-color: rgb(0, 0, 0); /* Set background color to white */
-  width: 100%;
-}
+
 
 /* Styles for the cube container */
-.x-container {
-  padding: 2px; /* Add padding around the cube container */
+.boss-container {
+  padding: 20px; /* Add padding around the cube container */
   background-color: black; /* Set background color to white */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 /* Styles for the cube GIF */
-.x-gif {
+.boss-gif {
   height: 200px; /* Set the height of the cube GIF */
   object-fit: contain; /* Maintain aspect ratio while scaling */
 }
@@ -135,6 +132,9 @@ input:checked + .slider:before {
   box-shadow: 0px 0px 35px rgb(14, 17, 23);
   margin: 0rem 1rem;
   user-select: none;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 .auth-form h2 {

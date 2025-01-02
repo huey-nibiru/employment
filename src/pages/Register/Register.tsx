@@ -1,6 +1,7 @@
 import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
 import xLogo from "../../assets/x.gif";
+import boss from "../../assets/boss.gif"
 import Ticker from "../../components/Ticker/Ticker";
 import { useState, useRef, useEffect } from "react"; // Import useState and useRef
 import TwitterAuth from "../../components/Twitter/TwitterAuth";
@@ -118,8 +119,8 @@ const Register = () => {
 			<Ticker />
 			<div className="Register-container">
 				<h1>Employment</h1>
-				<div className="x-container">
-					<img src={xLogo} alt="X Logo" className="x-gif" />{" "}
+				<div className="boss-container">
+					<img src={boss} alt="boss Logo" className="boss-gif" />{" "}
 				</div>
 			</div>
 			<form className="auth-form">
