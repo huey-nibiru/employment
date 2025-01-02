@@ -148,19 +148,32 @@ const Register = () => {
 					>
 						{modalState === "SignIn" ? "Sign Up" : "Sign In"}
 					</span>
-				</span>
-				{modalState === "SignIn" && (
-					<button className="form-cta" onClick={handleSignIn}>
-						Continue
-					</button>
-				)}
-				{modalState === "SignUp" && (
-					<button className="form-cta" onClick={handleSignUp}>
-						Create Account
-					</button>
-				)}
 
-				<FaXTwitter className="twitter-cta" onClick={handleTwitterSignIn} />
+					{modalState === "SignIn" && (
+						<div>
+							<button className="form-cta" onClick={handleSignIn}>
+								Sign In
+							</button>
+
+							<div style={{ textAlign: "center" }}>
+								<FaXTwitter className="twitter-cta" />
+								<p>Sign In with X</p>
+							</div>
+						</div>
+					)}
+					{modalState === "SignUp" && (
+						<div>
+							<button className="form-cta" onClick={handleSignUp}>
+								Sign Up
+							</button>
+
+							<div style={{ textAlign: "center" }}>
+								<FaXTwitter className="twitter-cta" />
+								<p>Sign Up with X</p>
+							</div>
+						</div>
+					)}
+				</span>
 			</form>
 		</div>
 	);

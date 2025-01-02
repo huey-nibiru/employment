@@ -3,7 +3,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
 import { supabase } from "../../client";
 import { useNavigate } from "react-router-dom";
-
 const Settings: React.FC = () => {
 	const navigate = useNavigate();
 	const [username, setUsername] = useState("");
