@@ -1,6 +1,6 @@
 import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
-import xLogo from "../../assets/x.gif";
+
 import boss from "../../assets/boss.gif";
 import Ticker from "../../components/Ticker/Ticker";
 import { useState, useRef, useEffect } from "react"; // Import useState and useRef

@@ -19,6 +19,10 @@ body {
 	background-color: white; /* Set background color to white */
 	width: 100%;
 	color: black;
+	display: flex; /* Use flexbox layout */
+	flex-direction: column; /* Stack elements vertically */
+	align-items: center; /* Center elements horizontally */
+	gap: 20px; /* Add space between each stack */
 }
 
 /* Styles for buttons */
@@ -34,14 +38,6 @@ button {
 	transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-
-
-/* Styles for the cube container */
-.cube-container {
-	padding: 2px; /* Add padding around the cube container */
-	background-color: white; /* Set background color to white */
-}
-
 /* Styles for the cube GIF */
 .cube-gif {
 	height: 200px; /* Set the height of the cube GIF */
@@ -54,5 +50,5 @@ h1 {
 }
 
 .twitter-login-btn:hover {
-	background-color: #1DA1F2;
+	background-color: #1da1f2;
 }
