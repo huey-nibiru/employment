@@ -1,7 +1,7 @@
 import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
 import xLogo from "../../assets/x.gif";
-import boss from "../../assets/boss.gif"
+import boss from "../../assets/boss.gif";
 import Ticker from "../../components/Ticker/Ticker";
 import { useState, useRef, useEffect } from "react"; // Import useState and useRef
 import TwitterAuth from "../../components/Twitter/TwitterAuth";
@@ -103,14 +103,13 @@ const Register = () => {
 		}
 	};
 
-	const handleTwitterSignIn = async () => {
-		try {
-			const { data, error } = await supabase.auth.signInWithOAuth({
-				provider: "twitter",
-			});
-		} catch (err) {
-			console.error(err);
-			alert(err);
+	const handleTwitterAuth = async () => {
+		const { error } = await supabase.auth.signInWithOAuth({
+			provider: "twitter",
+		});
+
+		if (error) {
+			console.error("Twitter auth error:", error);
 		}
 	};
 
