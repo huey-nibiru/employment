@@ -1,6 +1,5 @@
 import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
-
 import boss from "../../assets/boss.gif";
 import Ticker from "../../components/Ticker/Ticker";
 import { useState, useRef, useEffect } from "react"; // Import useState and useRef
@@ -103,21 +102,31 @@ const Register = () => {
 		}
 	};
 
+	///////////////////////////// TWITTER AUTH /////////////////////////////
+	///////////////////////////// TWITTER AUTH /////////////////////////////
+	///////////////////////////// TWITTER AUTH /////////////////////////////
 	const handleTwitterAuth = async () => {
 		const { error } = await supabase.auth.signInWithOAuth({
 			provider: "twitter",
+			options: {
+				redirectTo: window.location.origin + "/profile",
+			},
 		});
 
 		if (error) {
 			console.error("Twitter auth error:", error);
 		}
 	};
+	///////////////////////////// TWITTER AUTH /////////////////////////////
+	///////////////////////////// TWITTER AUTH /////////////////////////////
+	///////////////////////////// TWITTER AUTH /////////////////////////////
 
 	return (
 		<div>
-			<Ticker />
+			<div style={{ marginTop: "100px" }}>
+				<Ticker />
+			</div>
 			<div className="Register-container">
-				<h1>Employment</h1>
 				<div className="boss-container">
 					<img src={boss} alt="boss Logo" className="boss-gif" />{" "}
 				</div>
@@ -156,7 +165,10 @@ const Register = () => {
 							</button>
 
 							<div style={{ textAlign: "center" }}>
-								<FaXTwitter className="twitter-cta" />
+								<FaXTwitter
+									className="twitter-cta"
+									onClick={handleTwitterAuth}
+								/>
 								<p>Sign In with X</p>
 							</div>
 						</div>
@@ -168,7 +180,10 @@ const Register = () => {
 							</button>
 
 							<div style={{ textAlign: "center" }}>
-								<FaXTwitter className="twitter-cta" />
+								<FaXTwitter
+									className="twitter-cta"
+									onClick={handleTwitterAuth}
+								/>
 								<p>Sign Up with X</p>
 							</div>
 						</div>

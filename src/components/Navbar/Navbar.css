@@ -30,9 +30,6 @@
 	transform: translateX(-50%);
 }
 .navbar-right {
-	flex: 1;
-	display: flex;
-	justify-content: flex-end;
 }
 
 .navbar-link {

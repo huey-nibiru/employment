@@ -14,7 +14,7 @@
 /* Styles for the content inside the ticker */
 .ticker-content {
 	display: inline-block; /* Changed from flex to inline-block */
-	animation: ticker 60s linear infinite; /* Animate the ticker content with a duration of 40 seconds, in a linear fashion, repeating infinitely */
+	animation: ticker 30s linear infinite; /* Animate the ticker content with a duration of 40 seconds, in a linear fashion, repeating infinitely */
 	position: absolute; /* Add this line */
 	left: 100%; /* Add this line */
 	top: 0; /* Add this line */
@@ -24,12 +24,12 @@
 @keyframes ticker {
 	0% {
 		transform: translateX(
-			100%
+			0%
 		); /* Start the animation with the content off the right side of the container */
 	}
 	100% {
 		transform: translateX(
-			-125%
+			-120%
 		); /* End the animation with the content off the left side of the container */
 	}
 }
