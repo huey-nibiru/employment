@@ -192,6 +192,13 @@ fieldset input {
 	color: white;
 }
 
+
+
 .registration-box {
-	align-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
 }
