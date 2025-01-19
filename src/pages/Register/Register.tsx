@@ -5,7 +5,6 @@ import Ticker from "../../components/Ticker/Ticker";
 import { useState } from "react"; // Import useState and useRef
 import { useNavigate } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
-//import { updateAppState } from "path/to/updateAppState"; // FIX
 
 const Register = () => {
 	const navigate = useNavigate();
