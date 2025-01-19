@@ -151,9 +151,9 @@ const Register = () => {
 								Sign In with Email
 							</button>
 
-							<div className="x-auth">
+							<div className="x-auth" onClick={handleTwitterAuth}>
 								<p>Sign In with </p>
-								<FaXTwitter onClick={handleTwitterAuth} />
+								<FaXTwitter />
 							</div>
 						</div>
 					)}
@@ -162,9 +162,9 @@ const Register = () => {
 							<button className="form-cta" onClick={handleSignUp}>
 								Sign Up with Email
 							</button>
-							<div className="x-auth">
+							<div className="x-auth" onClick={handleTwitterAuth}>
 								<p>Sign Up with </p>
-								<FaXTwitter onClick={handleTwitterAuth} />
+								<FaXTwitter />
 							</div>
 						</div>
 					)}
