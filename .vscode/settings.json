@@ -1,3 +1,6 @@
 {
-	"mermaid.startOnLoad": true
+	"mermaid.startOnLoad": true,
+	"cursor.cmdk.useThemedDiffBackground": false,
+	"workbench.colorTheme": "Hacker",
+	"workbench.preferredDarkColorTheme": "Hacker"
 }

@@ -1,54 +1,7 @@
-/* src/styles.css */
-
-/* Styles for the body element */
-body {
-	font-family: Arial, sans-serif; /* Set the font family for the body */
-	margin: 0; /* Remove default margin */
-	padding: 0; /* Remove default padding */
-	display: flex; /* Use flexbox layout */
-	justify-content: center; /* Center content horizontally */
-	align-items: center; /* Center content vertically */
-	background-color: rgb(0, 0, 0); /* Set background color to black */
-}
-
-/* Styles for the container */
 .homepage-container {
-	text-align: center; /* Center-align text within the container */
-	padding: 50px; /* Add padding around the container */
-	border-radius: 8px; /* Round corners of the container */
-	background-color: white; /* Set background color to white */
-	width: 100%;
-	color: black;
-	display: flex; /* Use flexbox layout */
-	flex-direction: column; /* Stack elements vertically */
-	align-items: center; /* Center elements horizontally */
-	gap: 20px; /* Add space between each stack */
-}
-
-/* Styles for buttons */
-button {
-	margin: 10px; /* Add margin around buttons */
-	padding: 10px 20px; /* Set padding for button text */
-	font-size: 16px; /* Set font size for button text */
-	cursor: pointer; /* Change cursor to pointer on hover */
-	border: none; /* Remove default border */
-	border-radius: 5px; /* Round corners of buttons */
-	background-color: white; /* Set background color to Bootstrap primary color */
-	color: white; /* Set text color to white */
-	transition: background-color 0.3s; /* Smooth transition for background color */
-}
-
-/* Styles for the cube GIF */
-.cube-gif {
-	height: 200px; /* Set the height of the cube GIF */
-	object-fit: contain; /* Maintain aspect ratio while scaling */
-}
-
-h1 {
-	font-size: 3.2em; /* Set the font size for h1 headers */
-	line-height: 1.1; /* Set line height for h1 headers */
-}
-
-.twitter-login-btn:hover {
-	background-color: #1da1f2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }

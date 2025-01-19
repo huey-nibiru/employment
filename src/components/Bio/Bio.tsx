@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Avatar, Typography, Rating } from "@mui/material";
 import "./Bio.css";
 import { CiSettings } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { supabase } from "../../client";
 
 interface BioProps {
 	name: string;

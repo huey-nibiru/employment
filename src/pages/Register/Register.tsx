@@ -2,8 +2,7 @@ import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
 import boss from "../../assets/boss.gif";
 import Ticker from "../../components/Ticker/Ticker";
-import { useState, useRef, useEffect } from "react"; // Import useState and useRef
-import TwitterAuth from "../../components/Twitter/TwitterAuth";
+import { useState } from "react"; // Import useState and useRef
 import { useNavigate } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
 //import { updateAppState } from "path/to/updateAppState"; // FIX
@@ -16,14 +15,14 @@ const Register = () => {
 		password: "",
 	});
 
-	const stateUpdater = (field, value) => {
+	const stateUpdater = (field: string, value: any) => {
 		setFormData((prev) => ({
 			...prev,
 			[field]: value,
 		}));
 	};
 
-	const handleSignIn = async (e) => {
+	const handleSignIn = async (e: { preventDefault: () => void }) => {
 		e.preventDefault();
 
 		try {
@@ -49,7 +48,7 @@ const Register = () => {
 		}
 	};
 
-	const handleSignUp = async (e) => {
+	const handleSignUp = async (e: { preventDefault: () => void }) => {
 		e.preventDefault();
 
 		try {
@@ -115,6 +114,7 @@ const Register = () => {
 
 		if (error) {
 			console.error("Twitter auth error:", error);
+			return;
 		}
 	};
 	///////////////////////////// TWITTER AUTH /////////////////////////////
@@ -137,14 +137,18 @@ const Register = () => {
 					<input
 						type="text"
 						placeholder="Enter your email address"
-						onInput={(e) => stateUpdater("email", e.target.value)}
+						onInput={(e) =>
+							stateUpdater("email", (e.target as HTMLInputElement).value)
+						}
 					/>
 				</fieldset>
 				<fieldset>
 					<input
 						type="password"
 						placeholder="Enter your password"
-						onInput={(e) => stateUpdater("password", e.target.value)}
+						onInput={(e) =>
+							stateUpdater("password", (e.target as HTMLInputElement).value)
+						}
 					/>
 				</fieldset>
 				<span className="toggle-span">
@@ -159,33 +163,27 @@ const Register = () => {
 					</span>
 
 					{modalState === "SignIn" && (
-						<div>
+						<div className="registration-box">
 							<button className="form-cta" onClick={handleSignIn}>
 								Sign In
 							</button>
 
-							<div style={{ textAlign: "center" }}>
-								<FaXTwitter
-									className="twitter-cta"
-									onClick={handleTwitterAuth}
-								/>
-								<p>Sign In with X</p>
-							</div>
+							<button className="twitter-cta" onClick={handleTwitterAuth}>
+								<p>Sign In With</p>
+								<FaXTwitter />
+							</button>
 						</div>
 					)}
 					{modalState === "SignUp" && (
-						<div>
+						<div className="registration-box">
 							<button className="form-cta" onClick={handleSignUp}>
 								Sign Up
 							</button>
 
-							<div style={{ textAlign: "center" }}>
-								<FaXTwitter
-									className="twitter-cta"
-									onClick={handleTwitterAuth}
-								/>
-								<p>Sign Up with X</p>
-							</div>
+							<button className="twitter-cta" onClick={handleTwitterAuth}>
+								<p>Sign Up With X</p>
+								<FaXTwitter />
+							</button>
 						</div>
 					)}
 				</span>
