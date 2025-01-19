@@ -101,9 +101,6 @@ const Register = () => {
 		}
 	};
 
-	///////////////////////////// TWITTER AUTH /////////////////////////////
-	///////////////////////////// TWITTER AUTH /////////////////////////////
-	///////////////////////////// TWITTER AUTH /////////////////////////////
 	const handleTwitterAuth = async () => {
 		const { error } = await supabase.auth.signInWithOAuth({
 			provider: "twitter",
@@ -117,22 +114,17 @@ const Register = () => {
 			return;
 		}
 	};
-	///////////////////////////// TWITTER AUTH /////////////////////////////
-	///////////////////////////// TWITTER AUTH /////////////////////////////
-	///////////////////////////// TWITTER AUTH /////////////////////////////
 
 	return (
 		<div>
-			<div style={{ marginTop: "100px" }}>
-				<Ticker />
-			</div>
+			<Ticker />
 			<div className="Register-container">
 				<div className="boss-container">
 					<img src={boss} alt="boss Logo" className="boss-gif" />{" "}
 				</div>
 			</div>
 			<form className="auth-form">
-				<h2>{modalState === "SignIn" ? "Sign In" : "Create Account"}</h2>
+				<h2>{modalState === "SignIn" ? "Sign In" : "Sign Up"}</h2>
 				<fieldset>
 					<input
 						type="text"
@@ -165,7 +157,7 @@ const Register = () => {
 					{modalState === "SignIn" && (
 						<div className="registration-box">
 							<button className="form-cta" onClick={handleSignIn}>
-								Sign In
+								Sign In with Email
 							</button>
 
 							<button className="twitter-cta" onClick={handleTwitterAuth}>
@@ -177,11 +169,11 @@ const Register = () => {
 					{modalState === "SignUp" && (
 						<div className="registration-box">
 							<button className="form-cta" onClick={handleSignUp}>
-								Sign Up
+								Sign Up with Email
 							</button>
 
 							<button className="twitter-cta" onClick={handleTwitterAuth}>
-								<p>Sign Up With X</p>
+								<p>Sign Up With</p>
 								<FaXTwitter />
 							</button>
 						</div>
