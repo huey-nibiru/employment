@@ -123,6 +123,7 @@ const Register = () => {
 					<img src={boss} alt="boss Logo" className="boss-gif" />{" "}
 				</div>
 			</div>
+			
 			<form className="auth-form">
 				<h2>{modalState === "SignIn" ? "Sign In" : "Sign Up"}</h2>
 				<fieldset>
