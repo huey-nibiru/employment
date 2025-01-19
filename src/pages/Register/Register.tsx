@@ -99,20 +99,11 @@ const Register = () => {
 			console.error(error);
 		}
 	};
-
-	const handleTwitterAuth = async () => {
-		const { error } = await supabase.auth.signInWithOAuth({
+	async function handleTwitterAuth() {
+		await supabase.auth.signInWithOAuth({
 			provider: "twitter",
-			options: {
-				redirectTo: window.location.origin + "/profile",
-			},
 		});
-
-		if (error) {
-			console.error("Twitter auth error:", error);
-			return;
-		}
-	};
+	}
 
 	return (
 		<div>
@@ -160,10 +151,10 @@ const Register = () => {
 								Sign In with Email
 							</button>
 
-							<button onClick={handleTwitterAuth}>
-								<p>Sign In With</p>
-								<FaXTwitter />
-							</button>
+							<div className="x-auth">
+								<p>Sign In with </p>
+								<FaXTwitter onClick={handleTwitterAuth} />
+							</div>
 						</div>
 					)}
 					{modalState === "SignUp" && (
@@ -171,11 +162,10 @@ const Register = () => {
 							<button className="form-cta" onClick={handleSignUp}>
 								Sign Up with Email
 							</button>
-
-							<button onClick={handleTwitterAuth}>
-								<p>Sign Up With</p>
-								<FaXTwitter />
-							</button>
+							<div className="x-auth">
+								<p>Sign Up with </p>
+								<FaXTwitter onClick={handleTwitterAuth} />
+							</div>
 						</div>
 					)}
 				</span>

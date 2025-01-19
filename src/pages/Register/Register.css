@@ -192,8 +192,6 @@ fieldset input {
 	color: white;
 }
 
-
-
 .registration-box {
 	display: flex;
 	flex-direction: column;
@@ -201,4 +199,17 @@ fieldset input {
 	align-items: center;
 	height: 100%;
 	width: 100%;
+}
+
+.x-auth {
+	background-color: gold; /* Set background color to gold */
+	border: 1px solid transparent; /* Add a transparent border for hover effect */
+	border-radius: 15px;
+	padding: 20px;
+	color: black;
+	font-weight: bold; /* Make the font thicker */
+}
+
+.x-auth:hover {
+	border-color: black; /* Change border color to black on hover */
 }
