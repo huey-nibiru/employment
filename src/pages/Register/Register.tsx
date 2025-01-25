@@ -2,7 +2,7 @@ import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
 import boss from "../../assets/boss.gif";
 import Ticker from "../../components/Ticker/Ticker";
-import { useState } from "react"; // Import useState and useRef
+import { useState, useCallback, useMemo } from "react"; // Import useState, useCallback, and useMemo
 import { useNavigate } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -14,76 +14,35 @@ const Register = () => {
 		password: "",
 	});
 
-	const stateUpdater = (field: string, value: any) => {
+	const stateUpdater = useCallback((field: string, value: any) => {
 		setFormData((prev) => ({
 			...prev,
 			[field]: value,
 		}));
-	};
+	}, []); // Memoize stateUpdater
 
-	const handleSignIn = async (e: { preventDefault: () => void }) => {
-		e.preventDefault();
-
-		try {
+	const handleAuth = useCallback(
+		async (isSignIn: boolean) => {
 			if (!formData.email || !formData.password) return;
 
-			const { data, error } = await supabase.auth.signInWithPassword({
-				email: formData.email,
-				password: formData.password,
-			});
+			const { data, error } = isSignIn
+				? await supabase.auth.signInWithPassword({
+						email: formData.email,
+						password: formData.password,
+				  })
+				: await supabase.auth.signUp({
+						email: formData.email,
+						password: formData.password,
+				  });
 
 			if (error) {
-				const message = error.message;
-				// Handle error (e.g., show alert)
-				alert(message);
+				alert(error.message);
 				return; // Exit if there's an error
 			}
 
-			// Sign in successful
-			navigate("/explore"); // Only navigate if sign in is successful
-		} catch (error) {
-			console.error(error);
-			alert(error);
-		}
-	};
-
-	const handleSignUp = async (e: { preventDefault: () => void }) => {
-		e.preventDefault();
-
-		try {
-			if (!formData.email || !formData.password) return;
-
-			const { data, error } = await supabase.auth.signUp({
-				email: formData.email,
-				password: formData.password,
-			});
-
-			if (error) {
-				const message = error.message;
-
-				switch (message) {
-					case "To signup, please provide your email":
-						alert("To signup, please provide your email");
-						return;
-					case "Unable to validate email address: invalid format":
-						alert("Invalid email");
-						return;
-					case "Password should be at least 6 characters.":
-						alert("Password should be at least 6 characters");
-						return;
-					case "Signup requires a valid password":
-						alert("Signup requires a valid password");
-						return;
-					default:
-						alert(error);
-						return;
-				}
-			}
-
-			// add user to table
-			if (data.user) {
+			if (!isSignIn && data.user) {
 				const { error: insertError } = await supabase
-					.from("user") // Assuming 'users' is the table name
+					.from("user")
 					.insert([
 						{ email: formData.email, password_hash: formData.password },
 					]);
@@ -93,13 +52,29 @@ const Register = () => {
 					return;
 				}
 			}
-			// Redirect to profile
-			navigate("/profile");
-		} catch (error) {
-			console.error(error);
-		}
+
+			navigate(isSignIn ? "/explore" : "/profile");
+		},
+		[formData, navigate]
+	); // Memoize handleAuth
+
+	const handleSignIn = (e: { preventDefault: () => void }) => {
+		e.preventDefault();
+		handleAuth(true);
 	};
-	async function handleTwitterAuth() {
+
+	const handleSignUp = (e: { preventDefault: () => void }) => {
+		e.preventDefault();
+		handleAuth(false);
+	};
+
+	async function handleTwitterAuthSignIn() {
+		await supabase.auth.signInWithOAuth({
+			provider: "twitter",
+		});
+	}
+
+	async function handleTwitterAuthSignUp() {
 		await supabase.auth.signInWithOAuth({
 			provider: "twitter",
 		});
@@ -151,7 +126,7 @@ const Register = () => {
 								Sign In with Email
 							</button>
 
-							<div className="x-auth" onClick={handleTwitterAuth}>
+							<div className="x-auth" onClick={handleTwitterAuthSignIn}>
 								<p>Sign In with </p>
 								<FaXTwitter />
 							</div>
@@ -162,7 +137,7 @@ const Register = () => {
 							<button className="form-cta" onClick={handleSignUp}>
 								Sign Up with Email
 							</button>
-							<div className="x-auth" onClick={handleTwitterAuth}>
+							<div className="x-auth" onClick={handleTwitterAuthSignUp}>
 								<p>Sign Up with </p>
 								<FaXTwitter />
 							</div>
