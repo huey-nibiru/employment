@@ -6,10 +6,10 @@
 	overflow: hidden; /* Changed from auto to hidden */
 	white-space: nowrap; /* Prevent line breaks, ensuring text stays on a single line */
 	width: 100vw; /* Change width to 100% of the viewport width */
-	position: absolute; /* Add this line */
+	position: fixed; /* Add this line */
 	height: 50px; /* Add a fixed height */
 	line-height: 60px; /* Center the text vertically */
-	top: 65px; /* Move the ticker up vertically */
+	top: 60px; /* Move the ticker up vertically */
 	left: 0px;
 }
 
@@ -25,12 +25,12 @@
 @keyframes ticker {
 	0% {
 		transform: translateX(
-			0%
+			25%
 		); /* Start the animation with the content off the right side of the container */
 	}
 	100% {
 		transform: translateX(
-			-120%
+			-150%
 		); /* End the animation with the content off the left side of the container */
 	}
 }
