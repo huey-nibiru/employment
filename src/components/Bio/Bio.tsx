@@ -33,10 +33,10 @@ const Bio: React.FC = () => {
 					<Typography variant="body1">10.000</Typography>
 				</Box>
 				<Typography variant="body1">$EMPLOYMENT: 30000000.00</Typography>
-				<TokenBalanceDisplay
-					mintAddress="YOUR_TOKEN_MINT_ADDRESS_HERE"
+				{/* <TokenBalanceDisplay
+					mintAddress="Bp8BJj6VYuuJYBhF8Qv3QyXCm78nQBoM4cbGHmG2pump"
 					network="mainnet-beta"
-				/>
+				/> */}
 			</Box>
 		</div>
 	);
