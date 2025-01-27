@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { supabase } from "../../client";
 import { ThreeDE } from "../ThreeDe/ThreeDe";
 import sol from "../../assets/solana.png";
-import TokenBalanceDisplay from "../../Solana/Wallet";
 
 const Bio: React.FC = () => {
 	return (
@@ -33,10 +32,6 @@ const Bio: React.FC = () => {
 					<Typography variant="body1">10.000</Typography>
 				</Box>
 				<Typography variant="body1">$EMPLOYMENT: 30000000.00</Typography>
-				<TokenBalanceDisplay
-					mintAddress="YOUR_TOKEN_MINT_ADDRESS_HERE"
-					network="mainnet-beta"
-				/>
 			</Box>
 		</div>
 	);
