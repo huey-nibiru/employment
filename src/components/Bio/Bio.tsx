@@ -4,52 +4,27 @@ import "./Bio.css";
 import { CiSettings } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { supabase } from "../../client";
+import { ThreeDE } from "../ThreeDe/ThreeDe";
 
-interface BioProps {
-	name: string;
-	profilePicture: string;
-	basicInfo: string;
-	description: string;
-	rating: number;
-}
-
-const Bio: React.FC<BioProps> = ({
-	name,
-	profilePicture,
-	basicInfo,
-	description,
-	rating,
-}) => {
+const Bio: React.FC = () => {
 	return (
-		<Box className="bioContainer">
-			<Box className="headerContainer">
-				<Avatar src={profilePicture} alt={name} className="avatar" />
-
-				<Box className="nameContainer">
-					<Typography variant="h4" color="white">
-						{name}
-					</Typography>
-					<Typography variant="body2" color="white">
-						{basicInfo}
-					</Typography>
-				</Box>
+		<div className="glassmorphism">
+			<div className="ThreeDe">
+				<ThreeDE size={100} color="black" />
+			</div>
+			<Box
+				className="dashboard"
+				display="flex"
+				flexDirection="column"
+				alignItems="center"
+				sx={{ mb: 4 }} // Add margin bottom
+			>
+				<Avatar src="path/to/image.jpg" alt="Username PFP" />
+				<Typography variant="h6">Username</Typography>
+				<Typography variant="body1">Solana Balance: 0.00</Typography>
+				<Typography variant="body1">Employment Balance: 0.00</Typography>
 			</Box>
-			<Typography variant="body1" gutterBottom color="white">
-				{description}
-			</Typography>
-			<Rating value={rating} readOnly max={5} />
-			<Link to="/settings" className="settings">
-				<button
-					style={{
-						display: "flex",
-						alignItems: "center",
-						backgroundColor: "#ffd700",
-					}}
-				>
-					<CiSettings size={30} /> Profile Settings
-				</button>
-			</Link>
-		</Box>
+		</div>
 	);
 };
 

@@ -12,8 +12,7 @@ const Home = () => {
 				<h1 color="white">Employment</h1>
 				<img src={boss} alt="boss gif" />
 				<button>
-					<Link to="https://Linkedin.com">Use Until Further Notice...</Link>
-					{/* 		<Link to="/register">Login/Register</Link>  */}
+					<Link to="/register">Login/Register</Link>
 				</button>
 			</div>
 		</div>

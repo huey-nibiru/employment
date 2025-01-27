@@ -3,11 +3,8 @@
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Set the default font family */
 	line-height: 1.5; /* Set the line height for better readability */
 	font-weight: 400; /* Set the default font weight */
-
 	color-scheme: light dark; /* Specify the color schemes supported */
-	color: rgba(255, 255, 255, 0.87); /* Set the default text color */
 	background-color: #000000; /* Set the default background color */
-
 	font-synthesis: none; /* Disable font synthesis */
 	text-rendering: optimizeLegibility; /* Optimize text rendering for legibility */
 	-webkit-font-smoothing: antialiased; /* Smooth text on WebKit browsers */

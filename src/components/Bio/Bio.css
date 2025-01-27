@@ -1,25 +1,20 @@
-.bioContainer {
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	padding: 16px;
-	max-width: 100vh;
-	margin-top: 100px; /* Changed margin to 0 for full header */
-	width: 1000px; /* Added width to make it full width */
+.glassmorphism {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: calc(100vh);
+	background: rgb(255, 255, 255);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 8px 60px rgba(0, 0, 0, 0.2);
+	padding: 50px;
+	color: black;
 	display: flex;
-	flex-direction: column; /* Ensure vertical stacking */
-	align-items: center; /* Center items horizontally */
+	flex-direction: column;
+	justify-content: center;
 }
-
-.headerContainer {
-	display: flex;
-	flex-direction: column; /* Stack Avatar and nameContainer vertically */
-	align-items: center; /* Center nameContainer below Avatar */
-	margin-bottom: 16px;
-}
-
-.avatar {
-	width: 100px; /* Increased width */
-	height: 100px; /* Increased height */
-	margin: 0 auto; /* Centered the avatar */
-	display: block; /* Ensured it behaves as a block element for centering */
+.ThreeDe {
+	padding-left: 55px;
+	margin-top: -20;
+	padding-top: 0;
 }
