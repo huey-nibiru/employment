@@ -9,7 +9,6 @@
 	text-rendering: optimizeLegibility; /* Optimize text rendering for legibility */
 	-webkit-font-smoothing: antialiased; /* Smooth text on WebKit browsers */
 	-moz-osx-font-smoothing: grayscale; /* Smooth text on macOS */
-	
 }
 
 /* Styles for anchor tags */
@@ -41,11 +40,6 @@ button {
 	cursor: pointer; /* Change cursor to pointer on hover */
 	transition: border-color 0.25s; /* Smooth transition for border color */
 	border: 3px solid transparent;
-}
-
-button:hover {
-	border-color: black; /* Change border color on hover */
-	border-width: 3px; /* Increase border thickness on hover */
 }
 
 button:focus,

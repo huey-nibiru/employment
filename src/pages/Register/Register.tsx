@@ -133,7 +133,7 @@ const Register = () => {
 						/>
 					</fieldset>
 					<span className="toggle-span">
-						{modalState === "SignIn" ? "No account yet?" : "Have an account?"}
+						{modalState === "SignIn" ? "No account yet? " : "Have an account?"}
 						<span
 							className="sign-span"
 							onClick={() =>
@@ -147,11 +147,11 @@ const Register = () => {
 
 						{modalState === "SignIn" && (
 							<div className="registration-box">
-								<button className="form-cta" onClick={handleSignIn}>
+								<button className="auth-btn" onClick={handleSignIn}>
 									Sign In with Email
 								</button>
 
-								<div className="x-auth" onClick={handleTwitterAuthSignIn}>
+								<div className="auth-btn" onClick={handleTwitterAuthSignIn}>
 									<p>Sign In with </p>
 									<FaXTwitter />
 								</div>
@@ -159,10 +159,10 @@ const Register = () => {
 						)}
 						{modalState === "SignUp" && (
 							<div className="registration-box">
-								<button className="form-cta" onClick={handleSignUp}>
+								<button className="auth-btn" onClick={handleSignUp}>
 									Sign Up with Email
 								</button>
-								<div className="x-auth" onClick={handleTwitterAuthSignUp}>
+								<div className="auth-btn" onClick={handleTwitterAuthSignUp}>
 									<p>Sign Up with </p>
 									<FaXTwitter />
 								</div>
