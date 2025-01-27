@@ -2,15 +2,15 @@
 .ticker {
 	background-color: #000000; /* Background color of the ticker */
 	color: #fff; /* Text color for the ticker content */
-	font-size: 1.2em; /* Font size for the ticker text */
+	font-size: 1em; /* Font size for the ticker text */
 	overflow: hidden; /* Changed from auto to hidden */
 	white-space: nowrap; /* Prevent line breaks, ensuring text stays on a single line */
 	width: 100vw; /* Change width to 100% of the viewport width */
-	position: relative; /* Add this line */
-	height: 38px; /* Add a fixed height */
-	line-height: 50px; /* Center the text vertically */
-	margin-top: -150px; /* Add margin to create space below the navbar */
-
+	position: absolute; /* Add this line */
+	height: 50px; /* Add a fixed height */
+	line-height: 60px; /* Center the text vertically */
+	top: 65px; /* Move the ticker up vertically */
+	left: 0px;
 }
 
 /* Styles for the content inside the ticker */
@@ -19,7 +19,6 @@
 	animation: ticker 30s linear infinite; /* Animate the ticker content with a duration of 40 seconds, in a linear fashion, repeating infinitely */
 	position: absolute; /* Add this line */
 	left: 100vw; /* Change left to 100% of the viewport width */
-	top: 0; /* Add this line */
 }
 
 /* Keyframes for the ticker animation */

@@ -17,17 +17,6 @@ body {
 	object-fit: contain; /* Maintain aspect ratio while scaling */
 }
 
-.Register-signup-button {
-	background-color: #1da1f2;
-	color: white;
-	border: none;
-	border-radius: 30px;
-	padding: 10px 20px;
-	font-size: 1rem;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-}
-
 .auth-form {
 	padding: 36px;
 	width: 350px;
@@ -100,5 +89,5 @@ fieldset input {
 	flex-direction: column; /* Stack children vertically */
 	justify-content: center; /* Center children vertically */
 	align-items: center; /* Center children horizontally */
-	height: 100vh; /* Optional: Set height to fill the viewport */
+	height: auto; /* Change height to auto to allow natural flow */
 }
