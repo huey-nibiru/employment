@@ -5,7 +5,7 @@ import { CiSettings } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { supabase } from "../../client";
 import { ThreeDE } from "../ThreeDe/ThreeDe";
-import sol from "../../assets/solana.png"; // solana png
+import sol from "../../assets/solana.jpg"; // solana png
 
 const Bio: React.FC = () => {
 	return (

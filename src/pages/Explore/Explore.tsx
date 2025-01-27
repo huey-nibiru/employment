@@ -1,5 +1,5 @@
 import "./Explore.css";
-
+import Navbar from "../../components/Navbar/Navbar";
 import HoneyCombProp from "../../components/Honeycomb/Honeycomb";
 import { useState } from "react";
 
@@ -100,6 +100,7 @@ const Explore = () => {
 
 	return (
 		<div>
+			<Navbar />
 			<div className="button-container">
 				{" "}
 				{/* Added a container for buttons */}

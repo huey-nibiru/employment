@@ -111,67 +111,66 @@ const Register = () => {
 			<Navbar />
 			<Ticker />
 			<div className="Register-container">
-				<div className="boss-container">
-					<img src={boss} alt="boss Logo" className="boss-gif" />{" "}
-				</div>
-			</div>
+				<img src={boss} alt="boss Logo" className="boss-gif" />{" "}
+				<form className="auth-form">
+					<h2>{modalState === "SignIn" ? "Sign In" : "Sign Up"}</h2>
+					<fieldset>
+						<input
+							type="text"
+							placeholder="Enter your email address"
+							onInput={(e) =>
+								stateUpdater("email", (e.target as HTMLInputElement).value)
+							}
+						/>
+					</fieldset>
+					<fieldset>
+						<input
+							type="password"
+							placeholder="Enter your password"
+							onInput={(e) =>
+								stateUpdater("password", (e.target as HTMLInputElement).value)
+							}
+						/>
+					</fieldset>
+					<span className="toggle-span">
+						{modalState === "SignIn" ? "No account yet?" : "Have an account?"}
+						<span
+							className="sign-span"
+							onClick={() =>
+								setModalState((prev) =>
+									prev === "SignIn" ? "SignUp" : "SignIn"
+								)
+							}
+						>
+							{modalState === "SignIn" ? "Sign Up" : "Sign In"}
+						</span>
 
-			<form className="auth-form">
-				<h2>{modalState === "SignIn" ? "Sign In" : "Sign Up"}</h2>
-				<fieldset>
-					<input
-						type="text"
-						placeholder="Enter your email address"
-						onInput={(e) =>
-							stateUpdater("email", (e.target as HTMLInputElement).value)
-						}
-					/>
-				</fieldset>
-				<fieldset>
-					<input
-						type="password"
-						placeholder="Enter your password"
-						onInput={(e) =>
-							stateUpdater("password", (e.target as HTMLInputElement).value)
-						}
-					/>
-				</fieldset>
-				<span className="toggle-span">
-					{modalState === "SignIn" ? "No account yet?" : "Have an account?"}
-					<span
-						className="sign-span"
-						onClick={() =>
-							setModalState((prev) => (prev === "SignIn" ? "SignUp" : "SignIn"))
-						}
-					>
-						{modalState === "SignIn" ? "Sign Up" : "Sign In"}
+						{modalState === "SignIn" && (
+							<div className="registration-box">
+								<button className="form-cta" onClick={handleSignIn}>
+									Sign In with Email
+								</button>
+
+								<div className="x-auth" onClick={handleTwitterAuthSignIn}>
+									<p>Sign In with </p>
+									<FaXTwitter />
+								</div>
+							</div>
+						)}
+						{modalState === "SignUp" && (
+							<div className="registration-box">
+								<button className="form-cta" onClick={handleSignUp}>
+									Sign Up with Email
+								</button>
+								<div className="x-auth" onClick={handleTwitterAuthSignUp}>
+									<p>Sign Up with </p>
+									<FaXTwitter />
+								</div>
+							</div>
+						)}
 					</span>
-
-					{modalState === "SignIn" && (
-						<div className="registration-box">
-							<button className="form-cta" onClick={handleSignIn}>
-								Sign In with Email
-							</button>
-
-							<div className="x-auth" onClick={handleTwitterAuthSignIn}>
-								<p>Sign In with </p>
-								<FaXTwitter />
-							</div>
-						</div>
-					)}
-					{modalState === "SignUp" && (
-						<div className="registration-box">
-							<button className="form-cta" onClick={handleSignUp}>
-								Sign Up with Email
-							</button>
-							<div className="x-auth" onClick={handleTwitterAuthSignUp}>
-								<p>Sign Up with </p>
-								<FaXTwitter />
-							</div>
-						</div>
-					)}
-				</span>
-			</form>
+				</form>
+			</div>
 		</div>
 	);
 };
