@@ -74,6 +74,7 @@ const Navbar: React.FC = () => {
 						<button className="sign-out" onClick={handleLogout}>
 							Sign Out
 						</button>
+						{/* Added space here */}
 					) : null}
 					{isConnected ? (
 						<button
