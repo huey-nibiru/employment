@@ -2,7 +2,7 @@ import "./Register.css";
 import { supabase } from "../../client"; // MUST BE FIXED
 import boss from "../../assets/boss.gif";
 import Ticker from "../../components/Ticker/Ticker";
-import { useState, useCallback, useMemo } from "react"; // Import useState, useCallback, and useMemo
+import { useState, useCallback } from "react"; // Import useState, useCallback, and useMemo
 import { useNavigate } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
 import Navbar from "../../components/Navbar/Navbar";

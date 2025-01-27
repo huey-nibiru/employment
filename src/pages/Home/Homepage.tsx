@@ -13,7 +13,7 @@ const Home = () => {
 				<img
 					src={boss}
 					alt="boss gif"
-					style={{ width: "20%", height: "auto" }}
+					style={{ width: "50%", height: "auto" }}
 				/>
 				<button>
 					<Link to="/register">Login/Register</Link>

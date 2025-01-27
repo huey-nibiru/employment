@@ -14,13 +14,14 @@ body {
 /* Styles for the cube GIF */
 .boss-gif {
 	height: 200px; /* Set the height of the cube GIF */
+	margin-bottom: 2rem;
 	object-fit: contain; /* Maintain aspect ratio while scaling */
 }
 
 .auth-form {
 	padding: 36px;
-	width: 350px;
-	height: 500px;
+	width: auto;
+	height: 350px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -36,7 +37,6 @@ body {
 
 .auth-form h2 {
 	color: white;
-	margin-bottom: 2rem;
 }
 
 fieldset {
@@ -87,7 +87,11 @@ fieldset input {
 .Register-container {
 	display: flex; /* Enable Flexbox */
 	flex-direction: column; /* Stack children vertically */
-	justify-content: center; /* Center children vertically */
+	justify-content: space-between; /* Space between each object */
 	align-items: center; /* Center children horizontally */
 	height: auto; /* Change height to auto to allow natural flow */
+	position: fixed; /* Keep position fixed */
+	top: 50%; /* Center vertically */
+	left: 50%; /* Center horizontally */
+	transform: translate(-50%, -50%); /* Adjust position to truly center */
 }
