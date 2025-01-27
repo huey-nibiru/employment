@@ -19,10 +19,10 @@ const Bio: React.FC = () => {
 				alignItems="center"
 				sx={{ mb: 4 }} // Add margin bottom
 			>
-				<Avatar src="path/to/image.jpg" alt="Username PFP" />
-				<Typography variant="h6">Username</Typography>
-				<Typography variant="body1">Solana Balance: 0.00</Typography>
-				<Typography variant="body1">Employment Balance: 0.00</Typography>
+				<Avatar src="path/to/image.jpg" alt="Anon" />
+				<Typography variant="h6">Anon</Typography>
+				<Typography variant="body1">Sol: 10.000</Typography>
+				<Typography variant="body1">$Employment: 30000000.00</Typography>
 			</Box>
 		</div>
 	);
