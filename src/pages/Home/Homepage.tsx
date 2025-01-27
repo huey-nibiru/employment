@@ -15,9 +15,6 @@ const Home = () => {
 					alt="boss gif"
 					style={{ width: "50%", height: "auto" }}
 				/>
-				<button>
-					<Link to="/register">Login/Register</Link>
-				</button>
 			</div>
 		</div>
 	);

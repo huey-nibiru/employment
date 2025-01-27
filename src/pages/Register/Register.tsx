@@ -133,7 +133,7 @@ const Register = () => {
 						/>
 					</fieldset>
 					<span className="toggle-span">
-						{modalState === "SignIn" ? "No account yet? " : "Have an account?"}
+						{modalState === "SignIn" ? "No account yet? " : "Have an account? "}
 						<span
 							className="sign-span"
 							onClick={() =>

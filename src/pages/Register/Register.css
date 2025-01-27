@@ -125,3 +125,8 @@ fieldset input {
 .auth-form {
 	animation: glow 4s infinite; /* Slowed down the animation duration to 4 seconds */
 }
+
+.sign-span:hover {
+	color: yellow; /* Change font color to yellow on hover */
+	cursor: pointer;
+}
