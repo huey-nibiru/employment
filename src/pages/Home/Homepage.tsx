@@ -10,7 +10,11 @@ const Home = () => {
 			<Ticker />
 			<div className="homepage-container">
 				<h1 color="white">Employment</h1>
-				<img src={boss} alt="boss gif" />
+				<img
+					src={boss}
+					alt="boss gif"
+					style={{ width: "20%", height: "auto" }}
+				/>
 				<button>
 					<Link to="/register">Login/Register</Link>
 				</button>

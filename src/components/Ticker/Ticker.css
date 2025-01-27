@@ -5,18 +5,20 @@
 	font-size: 1.2em; /* Font size for the ticker text */
 	overflow: hidden; /* Changed from auto to hidden */
 	white-space: nowrap; /* Prevent line breaks, ensuring text stays on a single line */
-	width: 100%; /* Add this line */
+	width: 100vw; /* Change width to 100% of the viewport width */
 	position: relative; /* Add this line */
-	height: 40px; /* Add a fixed height */
-	line-height: 40px; /* Center the text vertically */
+	height: 38px; /* Add a fixed height */
+	line-height: 50px; /* Center the text vertically */
+	margin-top: -150px; /* Add margin to create space below the navbar */
+
 }
 
 /* Styles for the content inside the ticker */
 .ticker-content {
-	display: inline-block; /* Changed from flex to inline-block */
+	display: flex; /* Changed from flex to inline-block */
 	animation: ticker 30s linear infinite; /* Animate the ticker content with a duration of 40 seconds, in a linear fashion, repeating infinitely */
 	position: absolute; /* Add this line */
-	left: 100%; /* Add this line */
+	left: 100vw; /* Change left to 100% of the viewport width */
 	top: 0; /* Add this line */
 }
 

@@ -29,8 +29,6 @@
 	left: 50%;
 	transform: translateX(-50%);
 }
-.navbar-right {
-}
 
 .navbar-link {
 	padding: 0.5rem 0.75rem;
@@ -60,6 +58,7 @@
 
 .connect-button {
 	background-color: #ffd700;
+	height: 50px;
 }
 
 .disconnect-button {
@@ -72,8 +71,11 @@
 
 .sign-out {
 	color: white;
+	height: 50px;
 	background-color: black;
+	margin-right: 1rem; /* Added space to the right of the button */
 }
+
 .sign-out:hover {
 	color: black;
 }

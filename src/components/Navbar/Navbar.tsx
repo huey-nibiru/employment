@@ -4,6 +4,7 @@ import "./Navbar.css";
 import { AuthContext } from "../../utils/AuthProvider";
 import { supabase } from "../../client";
 import { useNavigate } from "react-router-dom";
+
 const Navbar: React.FC = () => {
 	const { isAuthenticated } = useContext(AuthContext);
 	const [isConnected, setIsConnected] = useState(false);
@@ -73,6 +74,7 @@ const Navbar: React.FC = () => {
 						<button className="sign-out" onClick={handleLogout}>
 							Sign Out
 						</button>
+						{/* Added space here */}
 					) : null}
 					{isConnected ? (
 						<button
