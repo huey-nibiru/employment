@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Box, Avatar, Typography } from "@mui/material";
 import "./Bio.css";
-import { fetchUsername } from "./GetValues";
+import { fetchUsername, fetchUserRating } from "./GetValues";
 import { ThreeDE } from "../ThreeDe/ThreeDe";
 import sol from "../../assets/solana.jpg";
 
 const Bio: React.FC = () => {
 	const [username, setUsername] = useState("Data Unavailable");
+	const [userRating, setUserRating] = useState("Data Unavailable");
 
 	useEffect(() => {
 		const getUsername = async () => {
@@ -14,7 +15,14 @@ const Bio: React.FC = () => {
 			if (fetchedUsername) setUsername(fetchedUsername);
 		};
 
+		const getUserRating = async () => {
+			const fetchedRating = await fetchUserRating();
+			if (fetchedRating) setUserRating(fetchedRating);
+			// Handle fetchedRating as needed
+		};
+
 		getUsername();
+		getUserRating();
 	}, []);
 
 	return (
@@ -30,7 +38,7 @@ const Bio: React.FC = () => {
 			>
 				<Avatar src="path/to/image.jpg" alt={username} />
 				<Typography variant="h6">{username}</Typography>
-				<Typography variant="h6">🐝🐝🐝🐝🐝</Typography>
+				<Typography variant="h6">{userRating}</Typography>
 
 				<Box display="flex" alignItems="center">
 					<img
