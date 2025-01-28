@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Avatar, Typography } from "@mui/material";
 import "./Dashboard.css";
+
 import { fetchUsername, fetchUserRating } from "./GetValues";
 import { ThreeDE } from "../ThreeDe/ThreeDe";
 import sol from "../../assets/solana.jpg";
@@ -55,5 +56,6 @@ const Dashboard: React.FC = () => {
 		</div>
 	);
 };
+
 
 export default Dashboard;
