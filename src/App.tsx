@@ -6,6 +6,7 @@ import Profile from "./pages/Profile/Profile";
 import AuthProvider from "./utils/AuthProvider";
 import Settings from "./pages/Settings/Settings";
 
+
 const App = () => {
 	return (
 		<AuthProvider>

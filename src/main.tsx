@@ -1,19 +1,22 @@
-// src/main.tsx
-
-import { supabase } from "./client";
+// main.tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+//import App from './App'
 import "./index.css";
-import { SessionContextProvider } from "@supabase/auth-helpers-react";
-import { createClient } from "@supabase/supabase-js";
+import { Web3ReactProvider } from "@web3-react/core";
+import { Web3Provider, ExternalProvider } from "@ethersproject/providers";
+import App from "./Phantom";
 
+function getLibrary(provider: unknown): Web3Provider {
+	const library = new Web3Provider(provider as ExternalProvider);
+	library.pollingInterval = 12000;
+	return library;
+}
 
-	// Render the App component into the root element of the HTML document
-	ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+	<Web3ReactProvider getLibrary={getLibrary}>
 		<React.StrictMode>
-			{" "}
-			{/* Enable strict mode for highlighting potential problems in the app */}
-			<App /> {/* Render the App component */}
+			<App />
 		</React.StrictMode>
-	);
+	</Web3ReactProvider>
+);
