@@ -1,0 +1,12 @@
+.connect-btn {
+	background-color: #ffd700;
+	height: 50px;
+}
+
+.disconnect-btn {
+	background-color: rgb(255, 0, 0);
+}
+
+.disconnect-btn:hover {
+	background-color: rgb(255, 0, 0);
+}

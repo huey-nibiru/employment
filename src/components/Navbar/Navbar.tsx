@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { AuthContext } from "../../utils/AuthProvider";
 import { supabase } from "../../client";
 import { useNavigate } from "react-router-dom";
-
+import PhantomButton from "../../Phantom/Phantom";
 
 const Navbar: React.FC = () => {
 	const { isAuthenticated } = useContext(AuthContext);
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
 							Sign Out
 						</button>
 					) : null}
-					{isConnected ? (
+					{/*{isConnected ? (
 						<button
 							onClick={disconnectWallet}
 							className="navbar-button disconnect-button"
@@ -84,7 +84,8 @@ const Navbar: React.FC = () => {
 						>
 							Connect Wallet
 						</button>
-					)}
+					)}*/}
+					<PhantomButton />
 				</div>
 			</div>
 		</nav>
