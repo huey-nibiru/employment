@@ -5,6 +5,7 @@ import { AuthContext } from "../../utils/AuthProvider";
 import { supabase } from "../../client";
 import { useNavigate } from "react-router-dom";
 
+
 const Navbar: React.FC = () => {
 	const { isAuthenticated } = useContext(AuthContext);
 	const [isConnected, setIsConnected] = useState(false);
@@ -79,6 +80,7 @@ const Navbar: React.FC = () => {
 						<button
 							onClick={connectWallet}
 							className="navbar-button connect-button"
+							
 						>
 							Connect Wallet
 						</button>
