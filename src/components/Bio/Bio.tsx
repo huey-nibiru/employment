@@ -1,13 +1,45 @@
-import React, { useEffect } from "react";
-import { Box, Avatar, Typography, Rating } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, Avatar, Typography } from "@mui/material";
 import "./Bio.css";
 import { CiSettings } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { supabase } from "../../client";
 import { ThreeDE } from "../ThreeDe/ThreeDe";
-import sol from "../../assets/solana.jpg"; // solana png
+import sol from "../../assets/solana.jpg";
 
 const Bio: React.FC = () => {
+	const [username, setUsername] = useState("Anon");
+
+	useEffect(() => {
+		const fetchUsername = async () => {
+			try {
+				// Get authenticated user
+				const {
+					data: { user: authUser },
+					error: authError,
+				} = await supabase.auth.getUser();
+
+				if (authError || !authUser) {
+					throw new Error("Not authenticated");
+				}
+
+				// Fetch username from your 'user' table
+				const { data, error } = await supabase
+					.from("user") // Use '"user"' if table name is a reserved keyword
+					.select("username")
+					.eq("id", authUser.id)
+					.single();
+
+				if (error) throw error;
+				if (data?.username) setUsername(data.username);
+			} catch (error) {
+				console.error("Error fetching username:", error);
+			}
+		};
+
+		fetchUsername();
+	}, []);
+
 	return (
 		<div className="glassmorphism">
 			<div className="ThreeDe">
@@ -18,10 +50,10 @@ const Bio: React.FC = () => {
 				display="flex"
 				flexDirection="column"
 				alignItems="center"
-				sx={{ mb: 4 }} // Add margin bottom
+				sx={{ mb: 4 }}
 			>
-				<Avatar src="path/to/image.jpg" alt="Anon" />
-				<Typography variant="h6">Anon</Typography>
+				<Avatar src="path/to/image.jpg" alt={username} />
+				<Typography variant="h6">{username}</Typography>
 
 				<Box display="flex" alignItems="center">
 					<img
