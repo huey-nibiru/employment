@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
 					)}
 				</div>
 				<div className="navbar-center">
-					<span className="navbar-title">EMPLOYMENT</span>
+					<span className="navbar-title">E*********</span>
 				</div>
 				<div className="navbar-right">
 					{isAuthenticated ? (
