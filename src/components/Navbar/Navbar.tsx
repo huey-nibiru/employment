@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
 	const connectWallet = async () => {
 		// Implement Phantom wallet connection logic here
 		setIsConnected(true);
-		setWalletAddress("ABC...XYZ");
+		setWalletAddress("disconnect");
 	};
 
 	const disconnectWallet = () => {
@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
 			if (error) {
 				alert(error);
 			}
-			//window.location.reload();
+
 			navigate("/");
 			window.location.reload();
 		} catch (err) {
@@ -43,22 +43,15 @@ const Navbar: React.FC = () => {
 					<Link to="/" className="navbar-link">
 						Home
 					</Link>
-					<Link to="/explore" className="navbar-link">
-						Explore
-					</Link>
-					{isConnected || isAuthenticated ? ( // Combined condition for Profile button
+
+					{isAuthenticated ? ( // Combined condition for Profile button
 						<>
+							<Link to="/explore" className="navbar-link">
+								Explore
+							</Link>
 							<Link to="/profile" className="navbar-link">
 								Profile
 							</Link>
-							{isConnected && ( // Logoff button only shown if connected
-								<button
-									onClick={disconnectWallet}
-									className="navbar-link navbar-button logoff-button"
-								>
-									Logoff
-								</button>
-							)}
 						</>
 					) : (
 						<Link to="/Register" className="navbar-link">
@@ -80,7 +73,7 @@ const Navbar: React.FC = () => {
 							onClick={disconnectWallet}
 							className="navbar-button disconnect-button"
 						>
-							{walletAddress}
+							Disconnect Wallet
 						</button>
 					) : (
 						<button

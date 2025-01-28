@@ -1,5 +1,5 @@
 import "./Register.css";
-import { supabase } from "../../client"; // MUST BE FIXED
+import { supabase } from "../../client.tsx"; // MUST BE FIXED
 import boss from "../../assets/boss.gif";
 import Ticker from "../../components/Ticker/Ticker";
 import { useState, useCallback } from "react"; // Import useState, useCallback, and useMemo
@@ -69,42 +69,18 @@ const Register = () => {
 		handleAuth(false);
 	};
 
-	async function handleTwitterAuthSignIn() {
-		await supabase.auth.signInWithOAuth({
-			provider: "twitter",
-		});
-	}
+	async function handleTwitterAuth() {
+		try {
+			const { data, error } = await supabase.auth.signInWithOAuth({
+				provider: "twitter",
+			});
 
-	async function handleTwitterAuthSignUp() {
-		const { data, error } = await supabase.auth.signInWithOAuth({
-			provider: "twitter",
-		});
-
-		if (error) {
-			console.error("Error signing in with Twitter:", error.message);
-			return;
-		}
-
-		console.log("Signed in with Twitter:", data);
-	}
-
-	async function handleAuthStateChange(event: string, session: any) {
-		if (event === "SIGNED_IN" && session) {
-			const userId = session.users.id;
-
-			// Insert the user ID into the `user` table
-			const { data, error } = await supabase
-				.from("user")
-				.insert([{ id: userId }]);
-
-			if (error) {
-				console.error("Error inserting user:", error.message);
-			} else {
-				console.log("User inserted successfully:", data);
-			}
+			console.log("Signed in with Twitter:", data);
+		} catch (error) {
+			alert("Error signing in with Twitter:");
+			console.log(error);
 		}
 	}
-	supabase.auth.onAuthStateChange(handleAuthStateChange);
 
 	return (
 		<div>
@@ -151,7 +127,7 @@ const Register = () => {
 									Sign In with Email
 								</button>
 
-								<div className="auth-btn" onClick={handleTwitterAuthSignIn}>
+								<div className="auth-btn" onClick={handleTwitterAuth}>
 									<p>Sign In with </p>
 									<FaXTwitter />
 								</div>
@@ -162,7 +138,7 @@ const Register = () => {
 								<button className="auth-btn" onClick={handleSignUp}>
 									Sign Up with Email
 								</button>
-								<div className="auth-btn" onClick={handleTwitterAuthSignUp}>
+								<div className="auth-btn" onClick={handleTwitterAuth}>
 									<p>Sign Up with </p>
 									<FaXTwitter />
 								</div>

@@ -41,6 +41,7 @@
 
 .navbar-link:hover {
 	background-color: #ffd700;
+	cursor: pointer;
 }
 
 .navbar-title {

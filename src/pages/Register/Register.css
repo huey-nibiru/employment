@@ -98,7 +98,6 @@ fieldset input {
 	border-radius: 15px;
 	padding: 15px;
 	color: black;
-	font-weight: bold; /* Make the font thicker */
 	display: flex; /* Use flexbox for centering */
 	justify-content: center; /* Center horizontally */
 	align-items: center; /* Center vertically */
