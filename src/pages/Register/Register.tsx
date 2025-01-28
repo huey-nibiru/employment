@@ -71,7 +71,7 @@ const Register = () => {
 
 	async function handleTwitterAuth() {
 		try {
-			const { data, error } = await supabase.auth.signInWithOAuth({
+			await supabase.auth.signInWithOAuth({
 				provider: "twitter",
 				options: {
 					redirectTo: "http://localhost:5173/profile",
