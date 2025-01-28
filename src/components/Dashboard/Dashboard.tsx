@@ -5,7 +5,7 @@ import { fetchUsername, fetchUserRating } from "./GetValues";
 import { ThreeDE } from "../ThreeDe/ThreeDe";
 import sol from "../../assets/solana.jpg";
 
-const Bio: React.FC = () => {
+const Dashboard: React.FC = () => {
 	const [username, setUsername] = useState("Data Unavailable");
 	const [userRating, setUserRating] = useState("Data Unavailable");
 
