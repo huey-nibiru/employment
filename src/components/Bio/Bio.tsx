@@ -1,41 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Box, Avatar, Typography } from "@mui/material";
 import "./Bio.css";
-import { supabase } from "../../client";
+import { fetchUsername } from "./GetValues";
 import { ThreeDE } from "../ThreeDe/ThreeDe";
 import sol from "../../assets/solana.jpg";
 
 const Bio: React.FC = () => {
-	const [username, setUsername] = useState("Anon");
+	const [username, setUsername] = useState("Data Unavailable");
 
 	useEffect(() => {
-		const fetchUsername = async () => {
-			try {
-				// Get authenticated user
-				const {
-					data: { user: authUser },
-					error: authError,
-				} = await supabase.auth.getUser();
-
-				if (authError || !authUser) {
-					throw new Error("Not authenticated");
-				}
-
-				// Fetch username from your 'user' table
-				const { data, error } = await supabase
-					.from("user") // Use '"user"' if table name is a reserved keyword
-					.select("username")
-					.eq("id", authUser.id)
-					.single();
-
-				if (error) throw error;
-				if (data?.username) setUsername(data.username);
-			} catch (error) {
-				console.error("Error fetching username:", error);
-			}
+		const getUsername = async () => {
+			const fetchedUsername = await fetchUsername();
+			if (fetchedUsername) setUsername(fetchedUsername);
 		};
 
-		fetchUsername();
+		getUsername();
 	}, []);
 
 	return (
@@ -51,6 +30,7 @@ const Bio: React.FC = () => {
 			>
 				<Avatar src="path/to/image.jpg" alt={username} />
 				<Typography variant="h6">{username}</Typography>
+				<Typography variant="h6">🐝🐝🐝🐝🐝</Typography>
 
 				<Box display="flex" alignItems="center">
 					<img
