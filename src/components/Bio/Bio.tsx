@@ -41,12 +41,11 @@ const Bio: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="glassmorphism">
+		<div className="dashboard">
 			<div className="ThreeDe">
 				<ThreeDE size={100} color="black" />
 			</div>
 			<Box
-				className="dashboard"
 				display="flex"
 				flexDirection="column"
 				alignItems="center"
