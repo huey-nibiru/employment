@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Avatar, Typography } from "@mui/material";
-import "./Bio.css";
+import "./Dashboard.css";
 import { fetchUsername, fetchUserRating } from "./GetValues";
 import { ThreeDE } from "../ThreeDe/ThreeDe";
 import sol from "../../assets/solana.jpg";
@@ -17,7 +17,9 @@ const Bio: React.FC = () => {
 
 		const getUserRating = async () => {
 			const fetchedRating = await fetchUserRating();
-			if (fetchedRating) setUserRating(fetchedRating);
+			if (fetchedRating) {
+				setUserRating(" 💼 ".repeat(fetchedRating));
+			}
 			// Handle fetchedRating as needed
 		};
 
@@ -54,4 +56,4 @@ const Bio: React.FC = () => {
 	);
 };
 
-export default Bio;
+export default Dashboard;

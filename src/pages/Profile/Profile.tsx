@@ -1,17 +1,11 @@
-import "./Profile.css";
-import { supabase } from "../../client"; // MUST BE FIXED
-import { useEffect, useState } from "react";
-import Bio from "../../components/Bio/Bio";
+import Dashboard from "../../components/Dashboard/Dashboard";
 import Navbar from "../../components/Navbar/Navbar";
-import ProfileNav from "../../components/Profile/Nav";
-import ProfileMain from "../../components/Profile/Main";
-import Achievements from "../../components/Achievements/Achievements";
 
 const Profile = () => {
 	return (
 		<div>
 			<Navbar />
-			<Bio />
+			<Dashboard />
 		</div>
 	);
 };
