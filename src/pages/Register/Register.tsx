@@ -73,12 +73,14 @@ const Register = () => {
 		try {
 			const { data, error } = await supabase.auth.signInWithOAuth({
 				provider: "twitter",
+				options: {
+					redirectTo: "http://localhost:5173/profile",
+				},
 			});
-
-			console.log("Signed in with Twitter:", data);
+			// Handle success (e.g., navigate or show a message)
 		} catch (error) {
-			alert("Error signing in with Twitter:");
-			console.log(error);
+			console.error("Error during Twitter authentication:", error);
+			// Handle error (e.g., show an alert)
 		}
 	}
 
