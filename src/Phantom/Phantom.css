@@ -1,6 +1,10 @@
 .connect-btn {
 	background-color: #ffd700;
 	height: 50px;
+	color: black;
+}
+.connect-btn:hover {
+	border-color: black;
 }
 
 .disconnect-btn {

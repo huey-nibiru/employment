@@ -37,7 +37,7 @@ function PhantomButton() {
 						</button>
 					) : (
 						<button onClick={handleConnect} className="connect-btn">
-							Connect to Phantom!
+							Connect to Phantom
 						</button>
 					)}
 					{/* <p>{account ? account : "no account connected"}</p> */}
